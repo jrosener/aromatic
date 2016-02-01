@@ -6,6 +6,10 @@ A forecast parser for Meteo France AROME files.
 * Parse them and extract wind speed/direction and temperature at a specific location.
 * 42 hours forecast for several locations exported as html file or txt format.
 
+# Known issues
+* Sometimes Meteo France servers are not providing AROME files properly: the name of the retrieved file is wrong (and the content as well). For the moment the only solution is to run again `aromatic` and hope that it will get the file ;-)
+* The whole software was written in a couple of hours without quality in mind. As a consequence, there are no tests and most of the returned errors are not checked. It obviously needs to be improved.
+
 # Runtime dependencies
 2 command line tools are required:
 * `curl`: needed to download AROME files from Meteo France servers.
@@ -19,7 +23,7 @@ A forecast parser for Meteo France AROME files.
 * Install build dependencies (ex. for Ubuntu 15.10): `sudo apt-get install build-essential qt5-default libgrib-api-tools`
 * Generate makefile: `qmake aromatic.pro`
 * Build: `make`
-* Run (the forecast is generated for locations defined in main.cpp): `./aromatic`
+* Run (the forecast is generated for locations defined in `main.cpp`, so this is the place to add your favorite spots): `./aromatic`
 
 # General architecture
 ```
