@@ -11,7 +11,6 @@
 #include "temperature.h"
 #include "wind.h"
 #include "meteo_forecast.h"
-#include "arome_grib_parser.h"
 #include "utils.h"
 #include "arome_grib_downloader.h"
 #include "meteo_forecast_processor.h"
