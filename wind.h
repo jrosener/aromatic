@@ -13,7 +13,6 @@ class Wind
  public:
     Wind();
     void set_components_u_v(const float &u_ms, const float &v_ms);
-    int get_speed_as_ms();
     int get_speed_as_knot();
     int get_direction_as_deg();
     std::string get_direction_as_str();

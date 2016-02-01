@@ -29,11 +29,6 @@ void Wind::set_components_u_v(const float &u_ms, const float &v_ms)
     return;
 }
 
-int Wind::get_speed_as_ms()
-{
-    return std::round(this->speed);
-}
-
 int Wind::get_speed_as_knot()
 {
     return std::round(this->speed * 1.94384);
@@ -47,7 +42,8 @@ int Wind::get_direction_as_deg()
 std::string Wind::get_direction_as_str()
 {
     std::string str = "";
-#if 1 // Results looks wrong even this looks correct according to http://wx.gmu.edu/dev/clim301/lectures/wind/wind-uv.html
+
+    // Transformation based on: http://wx.gmu.edu/dev/clim301/lectures/wind/wind-uv.html
     if ((this->direction >= 0)  && (this->direction <= 22))  str = "N";
     if ((this->direction > 22)  && (this->direction <= 67))  str = "NE";
     if ((this->direction > 67)  && (this->direction <= 112)) str = "E";
@@ -57,17 +53,7 @@ std::string Wind::get_direction_as_str()
     if ((this->direction > 247) && (this->direction <= 292)) str = "O";
     if ((this->direction > 292) && (this->direction <= 337)) str = "NO";
     if ((this->direction > 337) && (this->direction <= 360)) str = "N";
-#else
-    if ((this->direction >= 0)  && (this->direction <= 22))  str = "N";
-    if ((this->direction > 22)  && (this->direction <= 67))  str = "NO";
-    if ((this->direction > 67)  && (this->direction <= 112)) str = "O";
-    if ((this->direction > 112) && (this->direction <= 157)) str = "SO";
-    if ((this->direction > 157) && (this->direction <= 202)) str = "S";
-    if ((this->direction > 202) && (this->direction <= 247)) str = "SE";
-    if ((this->direction > 247) && (this->direction <= 292)) str = "E";
-    if ((this->direction > 292) && (this->direction <= 337)) str = "NE";
-    if ((this->direction > 337) && (this->direction <= 360)) str = "N";
-#endif
+
     return str;
 }
 

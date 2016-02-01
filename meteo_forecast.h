@@ -26,9 +26,9 @@ class Meteo_forecast
     std::vector<Meteo_current> forecast;
 
  public:
-    Meteo_forecast(const std::string &location_name,
-                   const std::string &country,
-                   const std::vector<std::pair<std::string,std::string>> &urls);
+    Meteo_forecast(const std::string &loc_name,
+                   const std::string &cntry,
+                   const std::vector<std::pair<std::string, std::string>> &urls);
 
     void set_latitude(const float &latitude);
     void set_longitude(const float &latitude);

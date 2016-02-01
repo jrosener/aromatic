@@ -5,9 +5,8 @@
 #include "arome_grib_parser.h"
 #include "utils.h"
 
-Arome_grib_parser::Arome_grib_parser(const std::string &file_path)
+Arome_grib_parser::Arome_grib_parser(const std::string &fpath) : file_path(fpath)
 {
-    this->file_path = file_path;
 }
 
 //

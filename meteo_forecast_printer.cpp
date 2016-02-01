@@ -5,9 +5,8 @@
 
 #include "meteo_forecast_printer.h"
 
-Meteo_forecast_printer::Meteo_forecast_printer(const std::vector<Meteo_forecast> &forecasts)
+Meteo_forecast_printer::Meteo_forecast_printer(const std::vector<Meteo_forecast> &fcasts) : forecasts(fcasts)
 {
-    this->forecasts = forecasts;
 }
 
 std::string Meteo_forecast_printer::get_html()

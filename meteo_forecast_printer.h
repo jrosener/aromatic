@@ -11,7 +11,7 @@ class Meteo_forecast_printer
     std::vector<Meteo_forecast> forecasts;
 
  public:
-    Meteo_forecast_printer(const std::vector<Meteo_forecast> &forecasts);
+    explicit Meteo_forecast_printer(const std::vector<Meteo_forecast> &fcasts);
     std::string get_html();
     std::string get_txt();
 };

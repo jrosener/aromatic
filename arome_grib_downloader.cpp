@@ -119,7 +119,7 @@ bool Arome_grib_downloader::run()
         time_t prev_day_t = mktime(&prev_day);
         run_date = this->get_date_str(prev_day_t, "%Y%m%d");
         run_date_dash = this->get_date_str(prev_day_t, "%Y-%m-%d");
-        std::string run_time = this->get_last_available_run_time(run_date_dash);
+        run_time = this->get_last_available_run_time(run_date_dash);
     }
     if (run_time == "-1")
     {
@@ -144,7 +144,6 @@ bool Arome_grib_downloader::run()
         }
         // Prepare a list of URLs to download.
         std::vector<std::string> urls;
-        std::string offset = "00";
         for (int i = 0; i <= 42; i++)
         {
             std::string offset = std::to_string(i);
@@ -198,13 +197,6 @@ std::vector<std::string> Arome_grib_downloader::get_file_list()
     }
 
     return files;
-}
-
-std::string Arome_grib_downloader::dl_file(const std::string &url)
-{
-    // Use curl to download the file.
-    // Silent mode but still return an error message in case of failure.
-    return exec("curl -s -S -f -O -J -L \"" + url + "\" 2>&1");
 }
 
 bool Arome_grib_downloader::url_exists(const std::string &url)

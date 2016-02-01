@@ -11,7 +11,6 @@ class Temperature
  public:
     Temperature();
     void set(const float &kelvin);
-    int get_as_kelvin();
     int get_as_celsius();
     bool is_defined();
 };

@@ -13,7 +13,7 @@ class Arome_grib_parser
     std::string file_path;
 
  public:
-    Arome_grib_parser(const std::string &file_path);
+    explicit Arome_grib_parser(const std::string &fpath);
     std::time_t get_start_date();
     int get_start_date_offset();
     Wind get_wind(const float &latitude, const float &longitude);
