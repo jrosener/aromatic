@@ -30,3 +30,8 @@ aromatic
 
 # Makefile
 Makefile
+
+# Output files
+forecast.html
+dl-*
+tmp/
