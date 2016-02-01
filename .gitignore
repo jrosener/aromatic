@@ -30,6 +30,7 @@ aromatic
 
 # Makefile
 Makefile
+*.pro.user
 
 # Output files
 forecast.html
