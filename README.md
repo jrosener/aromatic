@@ -21,3 +21,64 @@ A forecast parser for Meteo France AROME files.
 * Build: `make`
 * Run (the forecast is generated for locations defined in main.cpp): `./aromatic`
 
+# General architecture
+```
+                                               +--------+
+                                               |  main  |
+                                               +---+----+
+                                                   |
+                 +----------------------------------------------------------------------+
+                 |                                 |                                    |
+                 v                                 v                                    v
++------------------------------+ +-----------------------------------+ +--------------------------------+
+|  Arome_grib_downloader       | |      Meteo_forecast_processor     | |      Meteo_forecast_printer    |
++------------------------------+ +-----------------------------------+ +--------------------------------+
+|                              | |                                   | |                                |
+| bool run()                   | | Meteo_forecast run(location_name, | | list<Meteo_forecast> forecasts |
+| list<string> get_file_list() | |                    country,       | |                                |
+|                              | |                    latitude,      | +--------------------------------+
++------------------------------+ |                    longitude,     | |                                |
+                                 |                    arome_files)   | | string get_html()              |
+                                 |                                   | | string get_txt()               |
+                                 +-----------------+-----------------+ |                                |
+                                                   |                   +----------------+---------------+
+                                                   |                                    |
+                                      +------------+-----------------------+            |
+                                      |                                    |            |
+                                      v                                    v            v
+                +-------------------------------------------+  +-----------------------------------------+
+                |              Arome_grib_parser            |  |               Meteo_forecast            |
+                +-------------------------------------------+  +-----------------------------------------+
+                |                                           |  |                                         |
+                | file_path                                 |  | latitude                                |
+                |                                           |  | longitude                               |
+                +-------------------------------------------+  | location_name                           |
+                |                                           |  | country                                 |
+                | date get_start_date()                     |  | start_date                              |
+                | Wind get_wind(latitude, longitude)        |  | list<Wind,Temperature> forecast         |
+                | Temperature get_temp(latitude, longitude) |  |                                         |
+                |                                           |  +-----------------------------------------+
+                +---------------------+---------------------+  |                                         |
+                                      |                        | void set_wind(wind, hour_offset)        |
+                                      |                        | void set_temp(temperature, hour_offset) |
+                                      |                        | Wind get_wind(hour_offset)              |
+                                      |                        | Temperature get_temp(hour_offset)       |
+                                      |                        |                                         |
+                                      |                        +---------------------+-------------------+
+                                      |                                              |
+                                      +----------------------------------------------+
+                                      |                                              |
+                                      v                                              v
+                     +-------------------------------+                       +---------------+
+                     |               Wind            |                       |  Temperature  |
+                     +-------------------------------+                       +---------------+
+                     |                               |                       |               |
+                     | speed                         |                       | value         |
+                     | direction                     |                       |               |
+                     |                               |                       +---------------+
+                     +-------------------------------+                             
+                     |                               |                             
+                     | void set_components_u_v(u, v) |                             
+                     |                               |
+                     +-------------------------------+
+```
