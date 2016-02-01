@@ -54,21 +54,31 @@ int main()
     czt.push_back(std::make_pair("meteoblue",     "https://www.meteoblue.com/fr/meteo/prevision/multimodel/46.3N5.98E1529"));
     forecasts.push_back(forecast_proc.run("Crozet-Lelex", "FR", 46.30, 5.98, dl.get_file_list(), czt));
 
+    // Le Salève
+    std::vector<std::pair<std::string,std::string>> slv;
+    slv.push_back(std::make_pair("balise",          "http://www.romma.fr/station_24.php?id=73&tempe=1"));
+    slv.push_back(std::make_pair("balise ffvl",     "http://www.balisemeteo.com/balise_histo.php?idBalise=167"));
+    slv.push_back(std::make_pair("balise pioupiou", "http://pioupiou.fr/fr/70"));
+    slv.push_back(std::make_pair("webcams",         "http://meteocams.fr/fr/haute-savoie/mont-saleve/"));
+    slv.push_back(std::make_pair("meteofrance",     "http://www.meteofrance.com/previsions-meteo-france/collonges-sous-saleve/74160"));
+    slv.push_back(std::make_pair("meteoblue",       "https://www.meteoblue.com/fr/meteo/prevision/multimodel/le-grand-piton-%28mont-sal%C3%A8ve%29_france_6932127"));
+    forecasts.push_back(forecast_proc.run("Le Salève", "FR", 46.14, 6.18, dl.get_file_list(), slv));
+
+    // Le Semnoz
+    std::vector<std::pair<std::string,std::string>> smz;
+    smz.push_back(std::make_pair("balise ffvl",     "http://balisemeteo.com/balise_histo.php?idBalise=67"));
+    smz.push_back(std::make_pair("webcams",         "http://m.webcam-hd.com/semnoz"));
+    smz.push_back(std::make_pair("meteofrance",     "http://www.meteofrance.com/previsions-meteo-montagne/le-semnoz/74540"));
+    smz.push_back(std::make_pair("meteoblue",       "https://www.meteoblue.com/fr/meteo/prevision/multimodel/montagne-de-semnoz_france_2975160"));
+    forecasts.push_back(forecast_proc.run("Le Semnoz", "FR", 45.79, 6.10, dl.get_file_list(), smz));
+
     // Col de la Croix de Fer
     std::vector<std::pair<std::string,std::string>> cdf;
     forecasts.push_back(forecast_proc.run("Col de la Croix de Fer", "FR", 45.24, 6.19, dl.get_file_list(), cdf));
 
-    // Le Semnoz
-    std::vector<std::pair<std::string,std::string>> smz;
-    forecasts.push_back(forecast_proc.run("Le Semnoz", "FR", 45.79, 6.10, dl.get_file_list(), smz));
-
     // Col du Lautaret
     std::vector<std::pair<std::string,std::string>> lau;
     forecasts.push_back(forecast_proc.run("Col du Lautaret", "FR", 45.04, 6.41, dl.get_file_list(), lau));
-
-    // Le Salève
-    std::vector<std::pair<std::string,std::string>> slv;
-    forecasts.push_back(forecast_proc.run("Le Salève", "FR", 46.14, 6.18, dl.get_file_list(), slv));
 
     // Col du Grand Saint Bernard
     std::vector<std::pair<std::string,std::string>> gsb;
@@ -85,7 +95,6 @@ int main()
     // Etang de Thau - Pont Levis
     std::vector<std::pair<std::string,std::string>> tha;
     forecasts.push_back(forecast_proc.run("Etang de Thau - Pont Levis", "FR", 43.40, 3.65, dl.get_file_list(), tha));
-
 
     // Print forecasts.
     Meteo_forecast_printer printer(forecasts);
