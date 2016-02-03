@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Aromatic by jrosener</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Aromatic</h1>
+        <p>A forecast parser for Meteo France AROME files</p>
+        <p class="view"><a href="https://github.com/jrosener/aromatic">View the Project on GitHub <small>jrosener/aromatic</small></a></p>
+        <ul>
+          <li><a href="https://github.com/jrosener/aromatic/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jrosener/aromatic/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jrosener/aromatic">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="aromatic" class="anchor" href="#aromatic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Aromatic</h1>
+
+<p>A forecast parser for Meteo France AROME files.</p>
+
+<h1>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h1>
+
+<ul>
+<li>Download the latest run of AROME 0.01 meteo files.</li>
+<li>Parse them and extract wind speed/direction and temperature at a specific location.</li>
+<li>42 hours forecast for several locations exported as html file or txt format.</li>
+</ul>
+
+<h1>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known issues</h1>
+
+<ul>
+<li>Sometimes Meteo France servers are not providing AROME files properly: the name of the retrieved file is wrong (and the content as well). For the moment the only solution is to run again <code>aromatic</code> and hope that it will get the file ;-)</li>
+<li>The whole software was written in a couple of hours without quality in mind. As a consequence, there are no tests and most of the returned errors are not checked. It obviously needs to be improved.</li>
+</ul>
+
+<h1>
+<a id="runtime-dependencies" class="anchor" href="#runtime-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Runtime dependencies</h1>
+
+<p>2 command line tools are required:</p>
+
+<ul>
+<li>
+<code>curl</code>: needed to download AROME files from Meteo France servers.</li>
+<li>
+<code>grib_get</code>: needed to parse AROME files and extract meteo data at a specific location (this tool is part of the GRIB API distribution: <a href="https://software.ecmwf.int/wiki/display/GRIB/Home">https://software.ecmwf.int/wiki/display/GRIB/Home</a>).</li>
+</ul>
+
+<h1>
+<a id="build-requirements" class="anchor" href="#build-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build requirements</h1>
+
+<ul>
+<li><code>g++ 5.x</code></li>
+<li>
+<code>Qt 5.x</code> (<code>qmake</code> and <code>QtConcurrent</code> are necessary)</li>
+</ul>
+
+<h1>
+<a id="build-instructions" class="anchor" href="#build-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build instructions</h1>
+
+<ul>
+<li>Install build dependencies (ex. for Ubuntu 15.10): <code>sudo apt-get install build-essential qt5-default libgrib-api-tools</code>
+</li>
+<li>Generate makefile: <code>qmake aromatic.pro</code>
+</li>
+<li>Build: <code>make</code>
+</li>
+<li>Run (the forecast is generated for locations defined in <code>main.cpp</code>, so this is the place to add your favorite spots): <code>./aromatic</code>
+</li>
+</ul>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/jrosener">jrosener</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
