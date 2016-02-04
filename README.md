@@ -1,5 +1,5 @@
 # Aromatic
-A forecast parser for Meteo France AROME files.
+A forecast parser for Meteo France AROME files.  
 http://jrosener.github.io/aromatic/
 
 # Features
