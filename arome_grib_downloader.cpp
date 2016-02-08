@@ -12,6 +12,7 @@
 #define DL_DIR "dl"
 #define TMP_DIR "tmp"
 #define METEO_FRANCE_DL_URL "http://dcpc-nwp.meteo.fr/services/PS_GetCache_DCPCPreviNum?token=__5yLVTdr-sGeHoPitnFc7TZ6MhBcJxuSsoZp6y0leVHU__&model=AROME&grid=0.01&package=SP1"
+#define METEO_FRANCE_NB_HOUR_OFFSET 36
 
 Arome_grib_downloader::Arome_grib_downloader()
 {
@@ -144,7 +145,7 @@ bool Arome_grib_downloader::run()
         }
         // Prepare a list of URLs to download.
         std::vector<std::string> urls;
-        for (int i = 0; i <= 42; i++)
+        for (int i = 0; i <= METEO_FRANCE_NB_HOUR_OFFSET; i++)
         {
             std::string offset = std::to_string(i);
             if (offset.length() == 1) offset = '0' + offset;
@@ -161,14 +162,19 @@ bool Arome_grib_downloader::run()
         {
             std::cout << "Nothing to download" << std::endl;
         }
-#if 1 // parallel
-        QtConcurrent::blockingMapped<std::vector<std::string>>(urls, dl_file_static);
-#else // sequential
-        for (auto &u : urls)
-        {
-            dl_file_static(u);
-        }
-#endif
+	int max_retry = 5;
+	while ((max_retry > 0) && (this->get_file_list().size() <= METEO_FRANCE_NB_HOUR_OFFSET)) // Hack: because sometimes files exists but are not retrived by the server, then try again.
+	{
+		#if 1 // parallel
+        	QtConcurrent::blockingMapped<std::vector<std::string>>(urls, dl_file_static);
+		#else // sequential
+        	for (auto &u : urls)
+	        {
+	            dl_file_static(u);
+        	}
+		#endif
+		max_retry--;
+	}
         
         // Switch back to original dir.
         if (chdir(this->orig_dir.c_str()) != 0)
