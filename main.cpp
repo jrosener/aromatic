@@ -52,7 +52,7 @@ int main()
     czt.push_back(std::make_pair("meteofrance",   "http://www.meteofrance.com/previsions-meteo-montagne/monts-jura/01410"));
     czt.push_back(std::make_pair("meteocentrale", "http://www.meteocentrale.ch/fr/europe/suisse/temps-la-dole/details/S067020/"));
     czt.push_back(std::make_pair("meteoblue",     "https://www.meteoblue.com/fr/meteo/prevision/multimodel/46.3N5.98E1529"));
-    forecasts.push_back(forecast_proc.run("Crozet-Lelex", "FR", 46.30, 5.98, dl.get_file_list(), czt));
+    forecasts.push_back(forecast_proc.run("Crozet-Lelex", "FR", 46.32, 5.99, dl.get_file_list(), czt));
 
     // Le Salève
     std::vector<std::pair<std::string,std::string>> slv;
