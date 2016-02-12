@@ -97,7 +97,11 @@ int main()
     forecasts.push_back(forecast_proc.run("Etang de Thau - Pont Levis", "FR", 43.40, 3.65, dl.get_file_list(), tha));
 
     // Print forecasts.
-    Meteo_forecast_printer printer(forecasts);
+    std::vector<std::pair<std::string,std::string>> txt_sections;
+    txt_sections.push_back(std::make_pair("meteo caplain",  "http://mto38.free.fr"));
+    txt_sections.push_back(std::make_pair("meteofrance",    "http://www.meteofrance.com"));
+    txt_sections.push_back(std::make_pair("meteoparapente", "http://www.meteoparapente.com"));
+    Meteo_forecast_printer printer(dl.get_run_date("%a %d %b %Y %H:%M"), forecasts, txt_sections);
     std::cout << printer.get_txt() << std::endl;
 
     // Write html forecasts to file.

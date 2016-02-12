@@ -35,6 +35,11 @@ std::string Arome_grib_downloader::get_date_str(time_t date_t, const std::string
     return ss.str();
 }
 
+std::string Arome_grib_downloader::get_run_date(const std::string &format)
+{
+    return this->get_date_str(this->run_date_time, format);
+}
+
 std::string Arome_grib_downloader::get_last_available_run_time(const std::string &run_date)
 {
     std::string run_time = "-1";
@@ -125,13 +130,20 @@ bool Arome_grib_downloader::run()
     if (run_time == "-1")
     {
         std::cout << "ERROR: Can not download GRIB files from Meteo France server." << std::endl;
-        result = false;
+        return false;
     }
     if (chdir(this->orig_dir.c_str()) != 0)
     {
         std::cout << "ERROR: Can not change directory to " << this->orig_dir << std::endl;
         return false;
     }
+
+    // Store the run date/time.
+    std::tm run_date_time = *std::localtime(&today);
+    run_date_time.tm_min = 0;
+    run_date_time.tm_sec = 0;
+    run_date_time.tm_hour = std::stoi(run_time);
+    this->run_date_time = mktime(&run_date_time);
 
     // Download all files from the last run.
     if (result == true)

@@ -5,7 +5,10 @@
 
 #include "meteo_forecast_printer.h"
 
-Meteo_forecast_printer::Meteo_forecast_printer(const std::vector<Meteo_forecast> &fcasts) : forecasts(fcasts)
+Meteo_forecast_printer::Meteo_forecast_printer(const std::string run_date,
+                                               const std::vector<Meteo_forecast> &fcasts,
+                                               const std::vector<std::pair<std::string, std::string>> &txt_sections) :
+                                               run_date(run_date), forecasts(fcasts), txt_sections(txt_sections)
 {
 }
 
@@ -21,9 +24,12 @@ std::string Meteo_forecast_printer::get_html()
     html.append("    font-family: sans;\n");
     html.append("   }\n");
     html.append("   h1 {\n");
-    html.append("    font-size: 14px;\n");
+    html.append("    font-size: 18px;\n");
     html.append("   }\n");
     html.append("   h2 {\n");
+    html.append("    font-size: 14px;\n");
+    html.append("   }\n");
+    html.append("   h3 {\n");
     html.append("    font-size: 10px;\n");
     html.append("   }\n");
     html.append("   table {\n");
@@ -92,9 +98,28 @@ std::string Meteo_forecast_printer::get_html()
     html.append("    background-color:#940057;\n");
     html.append("   }\n");
     html.append("  </style>\n");
+    html.append("  <title>Forecasts - AROME 0.01° model - " + this->run_date + "</title>");
     html.append(" </head>\n");
     html.append(" <body>\n");
 
+    // Print a title.
+    html.append("  <h1>Forecasts - AROME 0.01° model - " + this->run_date + "</h1>\n");
+
+    // Print some info or URLS.
+    if (this->txt_sections.size() > 0)
+    {
+        html.append("  <p>\n");
+        for (auto &txt : this->txt_sections)
+        {
+            if (txt.second == "")
+                html.append("   <div>" +  txt.first + "</div>\n");
+            else
+                html.append("   <div><a href=" + txt.second + ">" + txt.first + "</a></div>\n");
+        }
+        html.append("  </p>\n");
+    }
+
+    // Print a forecast table for every locations.
     for (auto &forecast : this->forecasts)
     {
         // Title of forecast.
@@ -104,7 +129,7 @@ std::string Meteo_forecast_printer::get_html()
         std::stringstream ss2;
         ss2 << std::fixed << std::setprecision(2) << forecast.get_longitude();
         std::string longitude = ss2.str();
-        html.append("  <h1>" + forecast.get_location_name() + " - " + forecast.get_start_date_as_str("%a %d %b %Y"));
+        html.append("  <h2>" + forecast.get_location_name() + " - " + forecast.get_start_date_as_str("%a %d %b %Y"));
         std::string map_url = "";
         if (forecast.get_country() == "FR")
         {
@@ -117,17 +142,17 @@ std::string Meteo_forecast_printer::get_html()
             map_url.append("https://www.google.fr/maps/@");
             map_url.append(latitude + "," + longitude + ",14z");
         }
-        html.append(" (<a href=" + map_url + ">" + latitude + ", " + longitude + "</a>)</h1>\n");
+        html.append(" (<a href=" + map_url + ">" + latitude + ", " + longitude + "</a>)</h2>\n");
 
         // Links to webcam/forecast/...
         if (forecast.get_urls().size() > 0)
         {
-            html.append("<h2>");
+            html.append("<h3>");
             for (auto &link : forecast.get_urls())
             {
-                html.append("| <a href=" + link.second + ">" + link.first + "</a> | ");
+                html.append("| <a href=" + link.second + ">" + link.first + "</a> | \n");
             }
-            html.append("</h2>");
+            html.append("</h3>");
         }
 
         // Table with forecast for every hours.
