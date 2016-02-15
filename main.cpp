@@ -72,6 +72,14 @@ int main()
     smz.push_back(std::make_pair("meteoblue",       "https://www.meteoblue.com/fr/meteo/prevision/multimodel/montagne-de-semnoz_france_2975160"));
     forecasts.push_back(forecast_proc.run("Le Semnoz", "FR", 45.79, 6.10, dl.get_file_list(), smz));
 
+    // Col des Supeyres
+    std::vector<std::pair<std::string,std::string>> sup;
+    sup.push_back(std::make_pair("balise",      "http://www.lechaletdesgentianes.fr/meteo/index.htm"));
+    sup.push_back(std::make_pair("webcams",     "http://lechaletdesgentianes.fr/chalet/infos/webcams"));
+    sup.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-montagne/chalmazel/42920"));
+    sup.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/pierre-sur-haute_france_2987226"));
+    forecasts.push_back(forecast_proc.run("Col des Supeyres", "FR", 45.60, 3.84, dl.get_file_list(), sup));
+
     // Col de la Croix de Fer
     std::vector<std::pair<std::string,std::string>> cdf;
     forecasts.push_back(forecast_proc.run("Col de la Croix de Fer", "FR", 45.24, 6.19, dl.get_file_list(), cdf));
@@ -82,6 +90,7 @@ int main()
 
     // Col du Grand Saint Bernard
     std::vector<std::pair<std::string,std::string>> gsb;
+    gsb.push_back(std::make_pair("balise", "http://www.meteociel.fr/temps-reel/obs_villes.php?code2=6717"));
     forecasts.push_back(forecast_proc.run("Col du Grand Saint Bernard", "CH", 45.87, 7.19, dl.get_file_list(), gsb));
 
     // Col du Simplon
@@ -98,9 +107,10 @@ int main()
 
     // Print forecasts.
     std::vector<std::pair<std::string,std::string>> txt_sections;
-    txt_sections.push_back(std::make_pair("meteo caplain",  "http://mto38.free.fr"));
-    txt_sections.push_back(std::make_pair("meteofrance",    "http://www.meteofrance.com"));
-    txt_sections.push_back(std::make_pair("meteoparapente", "http://www.meteoparapente.com"));
+    txt_sections.push_back(std::make_pair("Meteo Caplain",   "http://mto38.free.fr"));
+    txt_sections.push_back(std::make_pair("Meteo France",    "http://www.meteofrance.com"));
+    txt_sections.push_back(std::make_pair("Meteo Parapente", "http://www.meteoparapente.com"));
+    txt_sections.push_back(std::make_pair("Unhooked Spots",  "http://www.unhooked.ch/2008/spotguide/"));
     Meteo_forecast_printer printer(dl.get_run_date("%a %d %b %Y %H:%M"), forecasts, txt_sections);
     std::cout << printer.get_txt() << std::endl;
 
