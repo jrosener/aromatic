@@ -28,6 +28,11 @@ std::string Meteo_forecast_printer::get_html()
     html.append("   }\n");
     html.append("   h2 {\n");
     html.append("    font-size: 14px;\n");
+    html.append("    background-color: black;\n");
+    html.append("    color: white;\n");
+    html.append("   }\n");
+    html.append("   h2 a {\n");
+    html.append("    color: white;\n");
     html.append("   }\n");
     html.append("   h3 {\n");
     html.append("    font-size: 10px;\n");
