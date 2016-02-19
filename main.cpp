@@ -82,27 +82,39 @@ int main()
 
     // Col de la Croix de Fer
     std::vector<std::pair<std::string,std::string>> cdf;
+    cdf.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-montagne/saint-sorlin-darves/73530"));
+    cdf.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/col-de-la-croix-de-fer_france_3022355"));
     forecasts.push_back(forecast_proc.run("Col de la Croix de Fer", "FR", 45.24, 6.19, dl.get_file_list(), cdf));
 
     // Col du Lautaret
     std::vector<std::pair<std::string,std::string>> lau;
+    lau.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-montagne/serre-chevalier/05100"));
+    lau.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/col-du-lautaret_france_3005951"));
     forecasts.push_back(forecast_proc.run("Col du Lautaret", "FR", 45.04, 6.41, dl.get_file_list(), lau));
 
     // Col du Grand Saint Bernard
     std::vector<std::pair<std::string,std::string>> gsb;
-    gsb.push_back(std::make_pair("balise", "http://www.meteociel.fr/temps-reel/obs_villes.php?code2=6717"));
+    gsb.push_back(std::make_pair("balise",    "http://www.meteociel.fr/temps-reel/obs_villes.php?code2=6717"));
+    gsb.push_back(std::make_pair("meteoblue", "https://www.meteoblue.com/fr/meteo/prevision/multimodel/col-du-grand-saint-bernard_conf%C3%A9d%C3%A9ration-suisse_2660518"));
     forecasts.push_back(forecast_proc.run("Col du Grand Saint Bernard", "CH", 45.87, 7.19, dl.get_file_list(), gsb));
 
     // Col du Simplon
     std::vector<std::pair<std::string,std::string>> spl;
+    spl.push_back(std::make_pair("meteoblue", "https://www.meteoblue.com/fr/meteo/prevision/multimodel/simplonpass_conf%C3%A9d%C3%A9ration-suisse_2658580"));
     forecasts.push_back(forecast_proc.run("Col du Simplon", "CH", 46.25, 8.03, dl.get_file_list(), spl));
 
     // Carteau
     std::vector<std::pair<std::string,std::string>> cta;
+    cta.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-france/port-saint-louis-du-rhone/13230"));
+    cta.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/port-saint-louis-du-rh%C3%B4ne_france_2985934"));
+    cta.push_back(std::make_pair("windguru",    "http://www.windguru.cz/fr/index.php?sc=48609"));
     forecasts.push_back(forecast_proc.run("Carteau", "FR", 43.38, 4.85, dl.get_file_list(), cta));
 
     // Etang de Thau - Pont Levis
     std::vector<std::pair<std::string,std::string>> tha;
+    tha.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-plages/sete/34200"));
+    tha.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/s%C3%A8te_france_2974733"));
+    tha.push_back(std::make_pair("windguru",    "http://www.windguru.cz/fr/index.php?sc=193009"));
     forecasts.push_back(forecast_proc.run("Etang de Thau - Pont Levis", "FR", 43.40, 3.65, dl.get_file_list(), tha));
 
     // Print forecasts.
