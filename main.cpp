@@ -105,9 +105,10 @@ int main()
 
     // Carteau
     std::vector<std::pair<std::string,std::string>> cta;
-    cta.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-france/port-saint-louis-du-rhone/13230"));
-    cta.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/port-saint-louis-du-rh%C3%B4ne_france_2985934"));
-    cta.push_back(std::make_pair("windguru",    "http://www.windguru.cz/fr/index.php?sc=48609"));
+    cta.push_back(std::make_pair("meteofrance",    "http://www.meteofrance.com/previsions-meteo-france/port-saint-louis-du-rhone/13230"));
+    cta.push_back(std::make_pair("meteoblue",      "https://www.meteoblue.com/fr/meteo/prevision/multimodel/port-saint-louis-du-rh%C3%B4ne_france_2985934"));
+    cta.push_back(std::make_pair("windguru",       "http://www.windguru.cz/fr/index.php?sc=48609"));
+    cta.push_back(std::make_pair("balise windsup", "http://www.winds-up.com/spot-port-st-louis-windsurf-kitesurf-30-observations-releves-vent.html"));
     forecasts.push_back(forecast_proc.run("Carteau", "FR", 43.38, 4.85, dl.get_file_list(), cta));
 
     // Etang de Thau - Pont Levis
@@ -116,6 +117,14 @@ int main()
     tha.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/s%C3%A8te_france_2974733"));
     tha.push_back(std::make_pair("windguru",    "http://www.windguru.cz/fr/index.php?sc=193009"));
     forecasts.push_back(forecast_proc.run("Etang de Thau - Pont Levis", "FR", 43.40, 3.65, dl.get_file_list(), tha));
+
+    // Lac Léman - Excenevex
+    std::vector<std::pair<std::string,std::string>> exc;
+    exc.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-france/excenevex/74140"));
+    exc.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/excenevex_france_6613597"));
+    exc.push_back(std::make_pair("windguru",    "http://www.windguru.cz/int/index.php?sc=198539"));
+    exc.push_back(std::make_pair("windspots",   "http://www.windspots.com/spots"));
+    forecasts.push_back(forecast_proc.run("Lac Léman - Excenevex", "FR", 46.35, 6.36, dl.get_file_list(), exc));
 
     // Print forecasts.
     std::vector<std::pair<std::string,std::string>> txt_sections;
