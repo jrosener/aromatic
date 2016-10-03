@@ -1,6 +1,7 @@
 #include <sstream>
 #include <iomanip>
 #include <vector>
+#include <iostream>
 
 #include "arome_grib_parser.h"
 #include "utils.h"
@@ -17,9 +18,15 @@ float Arome_grib_parser::get_meteo_value(const float &latitude, const float &lon
                                          const std::string &param_short_name)
 {
 	// Extract meteo values.
-    std::string raw_val_str = exec("grib_get -l " + std::to_string(latitude) + "," + std::to_string(longitude)
-           + " -p \"\" -w shortName=" + param_short_name
-           + " " + this->file_path);
+    std::string grib_get_params = std::to_string(latitude) + "," + std::to_string(longitude)
+            + " -p \"\" -w shortName=" + param_short_name
+            + " " + this->file_path;
+    std::string raw_val_str = exec("grib_get -l " + grib_get_params);
+    if (raw_val_str.empty() == true)
+    {
+        std::cout << "ERROR: grib_get -l " << grib_get_params << std::endl;
+        return 0.0;
+    }
 
     // Split the results (most of the time there are 4 space-separated values).
     std::vector<float> values;

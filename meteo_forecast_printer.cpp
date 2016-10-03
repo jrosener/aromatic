@@ -5,10 +5,11 @@
 
 #include "meteo_forecast_printer.h"
 
-Meteo_forecast_printer::Meteo_forecast_printer(const std::string run_date,
+Meteo_forecast_printer::Meteo_forecast_printer(const std::string name,
+                                               const std::string run_date,
                                                const std::vector<Meteo_forecast> &fcasts,
                                                const std::vector<std::pair<std::string, std::string>> &txt_sections) :
-                                               run_date(run_date), forecasts(fcasts), txt_sections(txt_sections)
+                                               name(name), run_date(run_date), forecasts(fcasts), txt_sections(txt_sections)
 {
 }
 
@@ -103,7 +104,7 @@ std::string Meteo_forecast_printer::get_html()
     html.append("    background-color:#940057;\n");
     html.append("   }\n");
     html.append("  </style>\n");
-    html.append("  <title>Forecasts - AROME 0.01° model - " + this->run_date + "</title>");
+    html.append("  <title>" + name + " forecasts - AROME 0.01° model - " + this->run_date + "</title>");
     html.append(" </head>\n");
     html.append(" <body>\n");
 
