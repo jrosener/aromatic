@@ -135,12 +135,15 @@ int main(int argc, char *argv[])
 
         // Col de la Croix de Fer
         std::vector<std::pair<std::string,std::string>> cdf;
+        cdf.push_back(std::make_pair("webcam",      "http://m.webcam-hd.com/le-corbier/pointe"));
         cdf.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-montagne/saint-sorlin-darves/73530"));
         cdf.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/col-de-la-croix-de-fer_france_3022355"));
         forecasts.push_back(forecast_proc.run("Col de la Croix de Fer", "FR", 45.24, 6.19, dl.get_file_list(), cdf));
 
         // Col du Lautaret
         std::vector<std::pair<std::string,std::string>> lau;
+        lau.push_back(std::make_pair("balise",      "http://romma.fr/station_24.php?id=21"));
+        lau.push_back(std::make_pair("webcam",      "https://www.jardinalpindulautaret.fr/jardin/visite-virtuelle-et-images/webcam"));
         lau.push_back(std::make_pair("meteofrance", "http://www.meteofrance.com/previsions-meteo-montagne/serre-chevalier/05100"));
         lau.push_back(std::make_pair("meteoblue",   "https://www.meteoblue.com/fr/meteo/prevision/multimodel/col-du-lautaret_france_3005951"));
         forecasts.push_back(forecast_proc.run("Col du Lautaret", "FR", 45.04, 6.41, dl.get_file_list(), lau));
@@ -153,6 +156,7 @@ int main(int argc, char *argv[])
 
         // Col du Simplon
         std::vector<std::pair<std::string,std::string>> spl;
+        spl.push_back(std::make_pair("webcam",    "https://www.gsbernard.ch/simplon/webcam.php"));
         spl.push_back(std::make_pair("meteoblue", "https://www.meteoblue.com/fr/meteo/prevision/multimodel/simplonpass_conf%C3%A9d%C3%A9ration-suisse_2658580"));
         forecasts.push_back(forecast_proc.run("Col du Simplon", "CH", 46.25, 8.03, dl.get_file_list(), spl));
     }
