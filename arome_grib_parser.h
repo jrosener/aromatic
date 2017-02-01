@@ -14,6 +14,7 @@ class Arome_grib_parser
 
  public:
     explicit Arome_grib_parser(const std::string &fpath);
+
     std::time_t get_start_date();
     int get_start_date_offset();
     Wind get_wind(const float &latitude, const float &longitude);

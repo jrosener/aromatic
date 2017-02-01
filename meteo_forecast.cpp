@@ -4,45 +4,10 @@
 
 #include "meteo_forecast.h"
 
-Meteo_forecast::Meteo_forecast(const std::string &loc_name,
-                               const std::string &cntry,
-                               const std::vector<std::pair<std::string, std::string>> &urls) : location_name(loc_name), country (cntry), urls(urls)
+Meteo_forecast::Meteo_forecast(const Location &loc) :
+                                   location(loc)
 {
-}
 
-void Meteo_forecast::set_latitude(const float &latitude)
-{
-    this->latitude = latitude;
-}
-
-void Meteo_forecast::set_longitude(const float &longitude)
-{
-    this->longitude = longitude;
-}
-
-float Meteo_forecast::get_latitude()
-{
-    return this->latitude;
-}
-
-float Meteo_forecast::get_longitude()
-{
-    return this->longitude;
-}
-
-std::string Meteo_forecast::get_location_name()
-{
-    return this->location_name;
-}
-
-std::string Meteo_forecast::get_country()
-{
-    return this->country;
-}
-
-std::vector<std::pair<std::string,std::string>> Meteo_forecast::get_urls()
-{
-    return this->urls;
 }
 
 void Meteo_forecast::set_start_date(const std::string &date, const std::string &format)

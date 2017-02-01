@@ -9,7 +9,10 @@ Meteo_forecast_printer::Meteo_forecast_printer(const std::string name,
                                                const std::string run_date,
                                                const std::vector<Meteo_forecast> &fcasts,
                                                const std::vector<std::pair<std::string, std::string>> &txt_sections) :
-                                               name(name), run_date(run_date), forecasts(fcasts), txt_sections(txt_sections)
+                                                   name(name),
+                                                   run_date(run_date),
+                                                   forecasts(fcasts),
+                                                   txt_sections(txt_sections)
 {
 }
 
@@ -130,14 +133,14 @@ std::string Meteo_forecast_printer::get_html()
     {
         // Title of forecast.
         std::stringstream ss;
-        ss << std::fixed << std::setprecision(2) << forecast.get_latitude();
+        ss << std::fixed << std::setprecision(2) << forecast.location.get_latitude();
         std::string latitude = ss.str();
         std::stringstream ss2;
-        ss2 << std::fixed << std::setprecision(2) << forecast.get_longitude();
+        ss2 << std::fixed << std::setprecision(2) << forecast.location.get_longitude();
         std::string longitude = ss2.str();
-        html.append("  <h2>" + forecast.get_location_name() + " - " + forecast.get_start_date_as_str("%a %d %b %Y"));
+        html.append("  <h2>" + forecast.location.get_location_name() + " - " + forecast.get_start_date_as_str("%a %d %b %Y"));
         std::string map_url = "";
-        if (forecast.get_country() == "FR")
+        if (forecast.location.get_country() == "FR")
         {
             map_url.append("http://tab.geoportail.fr/?c=");
             map_url.append(longitude + "," + latitude);
@@ -151,10 +154,10 @@ std::string Meteo_forecast_printer::get_html()
         html.append(" (<a href=" + map_url + ">" + latitude + ", " + longitude + "</a>)</h2>\n");
 
         // Links to webcam/forecast/...
-        if (forecast.get_urls().size() > 0)
+        if (forecast.location.get_urls().size() > 0)
         {
             html.append("<h3>");
-            for (auto &link : forecast.get_urls())
+            for (auto &link : forecast.location.get_urls())
             {
                 html.append("| <a href=" + link.second + ">" + link.first + "</a> | \n");
             }
@@ -246,7 +249,7 @@ std::string Meteo_forecast_printer::get_txt()
     for (auto &forecast : this->forecasts)
     {
         txt.append("\n");
-        txt.append("[Forecast @ " + forecast.get_location_name() + "]\n");
+        txt.append("[Forecast @ " + forecast.location.get_location_name() + "]\n");
         for (unsigned int i = 0; i < forecast.get_max_offset(); i++)
         {
             txt.append("  " + forecast.get_start_date_offset_as_str((unsigned int)i, "%a %d %b - %H:%M"));

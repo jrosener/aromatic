@@ -26,36 +26,25 @@ static Meteo_offset parse_arome_file_static(const Meteo_proc_params &params)
     return mto_offset;
 }
 
-Meteo_forecast Meteo_forecast_processor::run(const std::string &location_name,
-                                             const std::string &country,
-                                             const float &latitude,
-                                             const float &longitude,
-                                             const std::vector<std::string> &arome_files,
-                                             const std::vector<std::pair<std::string,std::string>> &urls)
+void Meteo_forecast_processor::run(Meteo_forecast &fcast,
+                                   const std::vector<std::string> &arome_files)
 {
     std::cout << std::endl;
-    std::cout << "Getting forecast @ " << location_name << ":" << std::endl;
-
-    // Prepare a forecast object.
-    Meteo_forecast mto_forecast(location_name, country, urls);
-    mto_forecast.set_latitude(latitude);
-    mto_forecast.set_longitude(longitude);
-    this->latitude = latitude;
-    this->longitude = longitude;
+    std::cout << "Getting forecast @ " << fcast.location.get_location_name() << ":" << std::endl;
 
     // Extract the start time from the first AROME file.
     std::cout << "Getting start date from " << arome_files[0] << "..." << std::flush;
     Arome_grib_parser grib(arome_files[0]);
-    mto_forecast.set_start_date(grib.get_start_date());
-    std::cout << " Done (" << mto_forecast.get_start_date_as_str("%a %d %b - %H:%M") << ")" << std::endl;
+    fcast.set_start_date(grib.get_start_date());
+    std::cout << " Done (" << fcast.get_start_date_as_str("%a %d %b - %H:%M") << ")" << std::endl;
 
     // Prepare a list of files+geolocation (needed by parallel proc above).
     std::vector<Meteo_proc_params> filepaths_params;
     for (auto &f : arome_files)
     {
         Meteo_proc_params p;
-        p.latitude = latitude;
-        p.longitude = longitude;
+        p.latitude = fcast.location.get_latitude();
+        p.longitude = fcast.location.get_longitude();
         p.file_path = f;
         filepaths_params.push_back(p);
     }
@@ -74,9 +63,7 @@ Meteo_forecast Meteo_forecast_processor::run(const std::string &location_name,
     // Iterate over results and populate the forecast object.
     for (auto &parser_result : parser_results)
     {
-        mto_forecast.set_wind(parser_result.wind, parser_result.offset);
-        mto_forecast.set_temperature(parser_result.temp, parser_result.offset);
+        fcast.set_wind(parser_result.wind, parser_result.offset);
+        fcast.set_temperature(parser_result.temp, parser_result.offset);
     }
-
-    return mto_forecast;
 }

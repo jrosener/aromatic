@@ -23,18 +23,10 @@ struct Meteo_proc_params
 
 class Meteo_forecast_processor
 {
- private:
-    float latitude = 0.0;
-    float longitude = 0.0;
-
  public:
     Meteo_forecast_processor();
-    Meteo_forecast run(const std::string &location_name,
-                       const std::string &country,
-                       const float &latitude,
-                       const float &longitude,
-                       const std::vector<std::string> &arome_files,
-                       const std::vector<std::pair<std::string, std::string>> &urls);
+    void run(Meteo_forecast &fcast,
+             const std::vector<std::string> &arome_files);
 };
 
 #endif // METEO_FORECAST_PROCESSOR_H

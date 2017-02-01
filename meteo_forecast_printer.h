@@ -1,5 +1,5 @@
-#ifndef METEO_FORECAST_PRINTER_H
-#define METEO_FORECAST_PRINTER_H
+#ifndef LOCATION_FORECAST_PRINTER_H
+#define LOCATION_FORECAST_PRINTER_H
 
 #include <string>
 
@@ -11,7 +11,7 @@ class Meteo_forecast_printer
     std::string name;
     std::string run_date;
     std::vector<Meteo_forecast> forecasts;
-    std::vector<std::pair<std::string, std::string>> txt_sections; // Text written before forecat tables.
+    std::vector<std::pair<std::string, std::string>> txt_sections; // Text written before forecast tables.
                                                                    // It is a pair of ["The text", url/nothing].
  public:
     Meteo_forecast_printer(const std::string name,
@@ -22,4 +22,4 @@ class Meteo_forecast_printer
     std::string get_txt();
 };
 
-#endif // METEO_FORECAST_H
+#endif // LOCATION_FORECAST_H

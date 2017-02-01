@@ -3,10 +3,10 @@
 
 #include <ctime>
 #include <string>
-#include <vector>
 
 #include "temperature.h"
 #include "wind.h"
+#include "location.h"
 
 struct Meteo_current
 {
@@ -14,29 +14,18 @@ struct Meteo_current
     Wind wind;
 };
 
+
 class Meteo_forecast
 {
+ public:
+    Location location;
+
  private:
-    float latitude = 0.0;
-    float longitude = 0.0;
-    std::string location_name;
-    std::string country;
-    std::vector<std::pair<std::string, std::string>> urls;
     std::time_t start_date;
     std::vector<Meteo_current> forecast;
 
  public:
-    Meteo_forecast(const std::string &loc_name,
-                   const std::string &cntry,
-                   const std::vector<std::pair<std::string, std::string>> &urls);
-
-    void set_latitude(const float &latitude);
-    void set_longitude(const float &latitude);
-    float get_latitude();
-    float get_longitude();
-    std::string get_location_name();
-    std::string get_country();
-    std::vector<std::pair<std::string,std::string>> get_urls();
+    Meteo_forecast(const Location &loc);
 
     void set_start_date(const std::string &date, const std::string &format);
     void set_start_date(const std::time_t &date);

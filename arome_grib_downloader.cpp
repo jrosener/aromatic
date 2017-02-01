@@ -31,7 +31,7 @@ std::string Arome_grib_downloader::get_date_str(time_t date_t, const std::string
     std::tm date = *std::localtime(&date_t);
     std::stringstream ss;
     ss << std::put_time(&date, format.c_str());
-    
+
     return ss.str();
 }
 
@@ -77,12 +77,11 @@ static std::string dl_file_static(const std::string &url)
         if (offset_idx != std::string::npos)
         {
             std::string offset = url.substr(offset_idx - 2, 3);
-            //std::cout << "offset from url = " << offset << std::endl;
             std::cout << "no error, check PS_GetCache: " << exec("ls | grep PS_GetCache_DCPCPreviNum | grep " + offset) << std::endl;
             while ((exec("ls | grep PS_GetCache_DCPCPreviNum | grep " + offset) != "") && (timeout < 10))
             {
                 std::cout << "cannot dl " << url << " : remove PS_GetCache and try again" << std::endl;
-                exec("rm PS_GetCache_DCPCPreviNum*" + offset + "*");       
+                exec("rm PS_GetCache_DCPCPreviNum*" + offset + "*");
                 res = exec("curl -s -S -f -O -J -L \"" + url + "\" 2>&1");
                 timeout++;
             }
@@ -116,7 +115,7 @@ bool Arome_grib_downloader::run()
     std::string run_date = this->get_date_str(today, "%Y%m%d");
     std::string run_date_dash = this->get_date_str(today, "%Y-%m-%d");
     std::string run_time = this->get_last_available_run_time(run_date_dash);
-//run_time = "18";
+
     if (run_time == "-1")
     {
         // Try downloading the previous day if the current day is still not available.
@@ -174,20 +173,20 @@ bool Arome_grib_downloader::run()
         {
             std::cout << "Nothing to download" << std::endl;
         }
-	int max_retry = 5;
-	while ((max_retry > 0) && (this->get_file_list().size() <= METEO_FRANCE_NB_HOUR_OFFSET)) // Hack: because sometimes files exists but are not retrived by the server, then try again.
-	{
-		#if 1 // parallel
-        	QtConcurrent::blockingMapped<std::vector<std::string>>(urls, dl_file_static);
-		#else // sequential
-        	for (auto &u : urls)
-	        {
-	            dl_file_static(u);
-        	}
-		#endif
-		max_retry--;
-	}
-        
+        int max_retry = 5;
+        while ((max_retry > 0) && (this->get_file_list().size() <= METEO_FRANCE_NB_HOUR_OFFSET)) // Hack: because sometimes files exists but are not retrived by the server, then try again.
+        {
+	#if 1 // parallel
+	    QtConcurrent::blockingMapped<std::vector<std::string>>(urls, dl_file_static);
+	#else // sequential
+	    for (auto &u : urls)
+	    {
+	        dl_file_static(u);
+	    }
+	#endif
+	    max_retry--;
+        }
+
         // Switch back to original dir.
         if (chdir(this->orig_dir.c_str()) != 0)
         {
@@ -203,7 +202,6 @@ std::vector<std::string> Arome_grib_downloader::get_file_list()
 {
     // Get list of files in the download directory.
     std::string ls_res = exec("ls " + this->dl_dir + " | grep grib2");
-    //std::cout << ls_res << std::endl;
 
     // Put file names in a table.
     std::vector<std::string> files;
@@ -220,9 +218,7 @@ std::vector<std::string> Arome_grib_downloader::get_file_list()
 bool Arome_grib_downloader::url_exists(const std::string &url)
 {
     // Try to download the file.
-//    std::string res = this->dl_file(url);
     std::string res = dl_file_static(url);
-//    std::cout << res << "(" << url << ")" << std::endl;
 
     // Check if curl returned an error (file not found).
     if (res.find("curl: (") != std::string::npos)
