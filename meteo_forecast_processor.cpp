@@ -51,6 +51,11 @@ void Meteo_forecast_processor::run(Meteo_forecast &fcast,
 
     // Iterate over AROME files, extract meteo data and set results in a vector.
 #if 1 // parallel
+    // Set number of threads for paralellization => (number of cores - 1).
+    if (QThreadPool::globalInstance()->maxThreadCount() > 1)
+    {
+        QThreadPool::globalInstance()->setMaxThreadCount(QThreadPool::globalInstance()->maxThreadCount() - 1);
+    }
     std::vector<Meteo_offset> parser_results = QtConcurrent::blockingMapped<std::vector<Meteo_offset>>(filepaths_params, parse_arome_file_static);
 #else // sequential
     std::vector<Meteo_offset> parser_results;

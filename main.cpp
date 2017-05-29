@@ -68,12 +68,6 @@ int main(int argc, char *argv[])
         cmd_parser.showHelp(0);
     }
 
-    // Limit number of threads (see calls to QtConcurrent::blockingMapped()).
-    if (QThreadPool::globalInstance()->maxThreadCount() > 1)
-    {
-        QThreadPool::globalInstance()->setMaxThreadCount(QThreadPool::globalInstance()->maxThreadCount() - 1);
-    }
-
     // Get the latest AROME GRIB files from Meteo France.
     Arome_grib_downloader dl;
     if (dl.run() == false)

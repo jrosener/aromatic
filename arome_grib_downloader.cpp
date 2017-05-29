@@ -77,7 +77,7 @@ static std::string dl_file_static(const std::string &url)
         if (offset_idx != std::string::npos)
         {
             std::string offset = url.substr(offset_idx - 2, 3);
-            std::cout << "no error, check PS_GetCache: " << exec("ls | grep PS_GetCache_DCPCPreviNum | grep " + offset) << std::endl;
+            //std::cout << "no error, check PS_GetCache: " << exec("ls | grep PS_GetCache_DCPCPreviNum | grep " + offset) << std::endl;
             while ((exec("ls | grep PS_GetCache_DCPCPreviNum | grep " + offset) != "") && (timeout < 10))
             {
                 std::cout << "cannot dl " << url << " : remove PS_GetCache and try again" << std::endl;
@@ -176,15 +176,23 @@ bool Arome_grib_downloader::run()
         int max_retry = 5;
         while ((max_retry > 0) && (this->get_file_list().size() <= METEO_FRANCE_NB_HOUR_OFFSET)) // Hack: because sometimes files exists but are not retrived by the server, then try again.
         {
-	#if 1 // parallel
-	    QtConcurrent::blockingMapped<std::vector<std::string>>(urls, dl_file_static);
-	#else // sequential
-	    for (auto &u : urls)
-	    {
-	        dl_file_static(u);
-	    }
-	#endif
-	    max_retry--;
+        #if 0 // parallel
+            // Set number of threads for paralellization to 2.
+            // This is a MeteoFrance limitation:
+            // "Depuis le 5 avril 2017, les téléchargements directs de données issues des modèles
+            //  seront limités à deux connexions concurrentielles pour une même IP, afin de répartir
+            //  de le trafic de manière plus équitable".
+            QThreadPool::globalInstance()->setMaxThreadCount(2);
+            QtConcurrent::blockingMapped<std::vector<std::string>>(urls, dl_file_static);
+        #else // sequential
+            // Use sequential download because it seems thar even 2 parallel
+            // downloads are rejected by MeteoFrance.
+            for (auto &u : urls)
+            {
+                dl_file_static(u);
+            }
+        #endif
+            max_retry--;
         }
 
         // Switch back to original dir.
