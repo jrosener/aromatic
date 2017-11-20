@@ -17,14 +17,43 @@ http://jrosener.github.io/aromatic/
 * `grib_get`: needed to parse AROME files and extract meteo data at a specific location (this tool is part of the GRIB API distribution: https://software.ecmwf.int/wiki/display/GRIB/Home).
 
 # Build requirements
-* `g++ 5.x`
+* `g++ 5.x/6.x`
 * `Qt 5.x` (`qmake` and `QtConcurrent` are necessary)
 
 # Build instructions
-* Install build dependencies (ex. for Ubuntu 15.10): `sudo apt-get install build-essential qt5-default libgrib-api-tools`
+* Install build dependencies (ex. for Ubuntu 17.10): `sudo apt-get install build-essential qt5-default libgrib-api-tools`
 * Generate makefile: `qmake aromatic.pro`
 * Build: `make`
-* Run (the forecast is generated for locations defined in `main.cpp`, so this is the place to add your favorite spots): `./aromatic`
+
+# Run instructions
+* Write a configuration file `aromatic.ini` (same location than `aromatic` executable) which describes forecast locations to compute. `aromatic-default.ini` is a good starting point. Basically a location is defined like that:
+
+```INI
+[location.1] # Location description starting point (increase the digit for each location).
+full_name="Col du Petit Saint Bernard" # Full name of the location.
+country=FR # FR: get a https://www.geoportail.gouv.fr map link, XX: use https://www.google.fr/maps
+latitude=45.68
+longitude=6.88
+season=winter # Can be "winter" or "summer", cf. app executable usage
+web.1="balise ffvl|http://balisemeteo.com/balise_histo.php?idBalise=115" # List of "name|url" printed in the report
+web.2="balise la thuile|http://www.meteolathuile.com/"
+web.3="webcams|http://www.larosiere.net/live/webcams/"
+web.4="meteofrance|http://www.meteofrance.com/previsions-meteo-montagne/la-rosiere-1850/73700"
+web.5="meteoblue|https://www.meteoblue.com/fr/meteo/prevision/multimodel/col-du-petit-saint-bernard_france_2998085"
+```
+* Usage:
+```
+Usage: ./aromatic [options]
+A forecast parser for Meteo France AROME files
+
+Options:
+  -h, --help         Displays this help.
+  -v, --version      Displays version information.
+  -s, --summer       Get forecast report for summer spots.
+  -w, --winter       Get forecast report for winter spots.
+  -f, --full_report  Get forecast report for all spots (same as --summer
+                     --winter).
+```
 
 # General architecture
 ```
