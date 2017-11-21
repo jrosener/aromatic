@@ -20,9 +20,6 @@
 #include "meteo_forecast_printer.h"
 #include "location_ini_parser.h"
 
-#define LOCATIONS_FILE_DEFAULT "aromatic-default.ini"
-#define LOCATIONS_FILE         "aromatic.ini"
-
 int main(int argc, char *argv[])
 {
     // Create a command line parser.
@@ -34,46 +31,46 @@ int main(int argc, char *argv[])
     cmd_parser.addHelpOption();
     cmd_parser.addVersionOption();
 
+    // -c, --config_file: specify the file containing location descriptions.
+    QCommandLineOption config_opt(QStringList() << "c" << "config_file",
+                                  QCoreApplication::translate("main", "The file containing location descriptions, see README (if not specified then use a set of default locations)."),
+                                  QCoreApplication::translate("main", "config_file"));
+    cmd_parser.addOption(config_opt);
+
+
     // -s, --summer: generate report for summer spots only.
     QCommandLineOption summer_opt(QStringList() << "s" << "summer",
-                                  QCoreApplication::translate("main", "Get forecast report for summer spots."));
+                                  QCoreApplication::translate("main", "Get forecast report for summer spots only."));
     cmd_parser.addOption(summer_opt);
 
     // -w, --winter: generate report for winter spots only.
     QCommandLineOption winter_opt(QStringList() << "w" << "winter",
-                                  QCoreApplication::translate("main", "Get forecast report for winter spots."));
+                                  QCoreApplication::translate("main", "Get forecast report for winter spots only."));
     cmd_parser.addOption(winter_opt);
-
-    // -f, --full_report: generate report for all spots.
-    QCommandLineOption full_opt(QStringList() << "f" << "full_report",
-                                QCoreApplication::translate("main", "Get forecast report for all spots (same as --summer --winter)."));
-    cmd_parser.addOption(full_opt);
 
     // Process the actual command line arguments given by the user.
     cmd_parser.process(app);
     bool do_summer_report = cmd_parser.isSet(summer_opt);
     bool do_winter_report = cmd_parser.isSet(winter_opt);
-    bool do_full_report   = cmd_parser.isSet(full_opt);
-    if (do_full_report == true)
+    QString config_file = cmd_parser.value(config_opt);
+
+    // No report type specified: do a full report (summer & winter).
+    std::string forecast_name;
+    if ((do_summer_report == true) &&
+        (do_winter_report == false))
     {
+        forecast_name = "Summer";
+    }
+    else if ((do_winter_report == true) &&
+             (do_summer_report == false))
+    {
+        forecast_name = "Winter";
+    }
+    else
+    {
+        forecast_name = "Summer & Winter";
         do_summer_report = true;
         do_winter_report = true;
-    }
-
-    // No report type specified: show help and exit.
-    if ((do_summer_report == false) &&
-        (do_winter_report == false) &&
-        (do_full_report == false))
-    {
-        cmd_parser.showHelp(0);
-    }
-
-    // Get the latest AROME GRIB files from Meteo France.
-    Arome_grib_downloader dl;
-    if (dl.run() == false)
-    {
-        std::cout << "ERROR: can not download AROME GRIB file." << std::endl;
-        return -1;
     }
 
     // Force locale (needed by std::float::to_string() for example).
@@ -82,8 +79,16 @@ int main(int argc, char *argv[])
 
     // Get locations defined in aromatic.ini file.
     std::vector<Location> locations;
-    Location_ini_parser ini_parser(LOCATIONS_FILE_DEFAULT, LOCATIONS_FILE);
+    Location_ini_parser ini_parser(config_file.toStdString());
     ini_parser.run(locations);
+
+    // Get the latest AROME GRIB files from Meteo France.
+    Arome_grib_downloader dl;
+    if (dl.run() == false)
+    {
+        std::cout << "ERROR: can not download AROME GRIB file." << std::endl;
+        return -1;
+    }
 
     // Prepare forecast for locations required by the user.
     std::vector<Meteo_forecast> meteo_forecasts;
@@ -109,19 +114,6 @@ int main(int argc, char *argv[])
     txt_sections.push_back(std::make_pair("Meteo France",    "http://www.meteofrance.com"));
     txt_sections.push_back(std::make_pair("Meteo Parapente", "http://www.meteoparapente.com"));
     txt_sections.push_back(std::make_pair("Unhooked Spots",  "http://www.unhooked.ch/2008/spotguide/"));
-    std::string forecast_name;
-    if (do_full_report == true)
-    {
-        forecast_name = "";
-    }
-    else if (do_summer_report == true)
-    {
-        forecast_name = "Summer";
-    }
-    else if (do_winter_report == true)
-    {
-        forecast_name = "Winter";
-    }
     Meteo_forecast_printer printer(forecast_name, dl.get_run_date("%a %d %b %Y %H:%M"), meteo_forecasts, txt_sections);
     std::cout << printer.get_txt() << std::endl;
 

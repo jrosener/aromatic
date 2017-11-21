@@ -7,17 +7,31 @@
 
 #include "location_ini_parser.h"
 
-Location_ini_parser::Location_ini_parser(const std::string &ini_default_file,
-                                         const std::string &ini_file) :
-                                            file(ini_file)
+Location_ini_parser::Location_ini_parser(const std::string &ini_file)
 {
-    // Create aromatic.ini based on aromatic-default.ini
-    QFileInfo locations_file(QString::fromStdString(this->file));
+    // Use aromatic-default.ini if no INI file specified.
+    if (ini_file == "")
+    {
+        std::cout << "INFO: no locations file specified, use default locations." << std::endl;
+        this->file = ":/aromatic-default.ini";
+        return;
+    }
+
+    // Use aromatic-default.ini if specified INI file does not exists.
+    QFileInfo locations_file(QString::fromStdString(ini_file));
     if (locations_file.exists() == false)
     {
-        std::cout << "INFO: " << ini_file << " does not exists, use "<< ini_default_file << " as a base." << std::endl;
-        QFile::copy(QString::fromStdString(ini_default_file), QString::fromStdString(this->file));
+        std::cout << "INFO: " << ini_file << " does not exists, use default locations." << std::endl;
+        this->file = ":/aromatic-default.ini";
+        return;
     }
+
+
+    // Specified INI file exists, use it.
+    std::cout << "INFO: using locations file " << ini_file << std::endl;
+    this->file = ini_file;
+
+    return;
 }
 
 void Location_ini_parser::run(std::vector<Location> &loc_forecasts)

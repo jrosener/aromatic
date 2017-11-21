@@ -11,8 +11,7 @@ class Location_ini_parser
     std::string file;
 
  public:
-    Location_ini_parser(const std::string &ini_default_file,
-                        const std::string &ini_file);
+    Location_ini_parser(const std::string &ini_file);
 
     void run(std::vector<Location> &loc_forecasts);
 };

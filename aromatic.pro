@@ -30,3 +30,6 @@ HEADERS += \
 
 DISTFILES += \
     aromatic-default.ini
+
+RESOURCES += \
+    aromatic-default.qrc
