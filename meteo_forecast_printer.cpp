@@ -139,19 +139,7 @@ std::string Meteo_forecast_printer::get_html()
         ss2 << std::fixed << std::setprecision(2) << forecast.location.get_longitude();
         std::string longitude = ss2.str();
         html.append("  <h2>" + forecast.location.get_location_name() + " - " + forecast.get_start_date_as_str("%a %d %b %Y"));
-        std::string map_url = "";
-        if (forecast.location.get_country() == "FR")
-        {
-            map_url.append("http://tab.geoportail.fr/?c=");
-            map_url.append(longitude + "," + latitude);
-            map_url.append("&z=16&l0=GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.STANDARD:WMTS(1)&l1=GEOGRAPHICALGRIDSYSTEMS.MAPS:WMTS(1)&l2=ORTHOIMAGERY.ORTHOPHOTOS:WMTS(1)&l3=GEOGRAPHICALGRIDSYSTEMS.MAPS:WMTS(1)&permalink=yes");
-        }
-        else
-        {
-            map_url.append("https://www.google.fr/maps/@");
-            map_url.append(latitude + "," + longitude + ",14z");
-        }
-        html.append(" (<a href=" + map_url + ">" + latitude + ", " + longitude + "</a>)</h2>\n");
+        html.append(" (<a href=" + forecast.location.get_map() + ">" + latitude + ", " + longitude + "</a>)</h2>\n");
 
         // Links to webcam/forecast/...
         if (forecast.location.get_urls().size() > 0)
