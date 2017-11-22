@@ -17,9 +17,9 @@ Arome_grib_parser::Arome_grib_parser(const std::string &fpath) : file_path(fpath
 float Arome_grib_parser::get_meteo_value(const float &latitude, const float &longitude,
                                          const std::string &param_short_name)
 {
-	// Extract meteo values.
-    std::string grib_get_params = std::to_string(latitude) + "," + std::to_string(longitude)
-            + " -p \"\" -w shortName=" + param_short_name
+    // Extract meteo values.
+    std::string grib_get_params = std::to_string(latitude) + "," + std::to_string(longitude) + ",1"
+            + " -w shortName=" + param_short_name
             + " " + this->file_path;
     std::string raw_val_str = exec("grib_get -l " + grib_get_params);
     if (raw_val_str.empty() == true)
@@ -77,8 +77,10 @@ int Arome_grib_parser::get_start_date_offset()
     // Get only the first occurence.
     std::string offset = exec("grib_get -p step " + this->file_path + " | head -n1");
 
-    // Return the offset as integer.
-    return std::stoi(offset);
+    if (is_number(offset))
+        return std::stoi(offset);
+    else
+        return -1;
 }
 
 Wind Arome_grib_parser::get_wind(const float &latitude, const float &longitude)

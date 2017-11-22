@@ -68,7 +68,10 @@ void Meteo_forecast_processor::run(Meteo_forecast &fcast,
     // Iterate over results and populate the forecast object.
     for (auto &parser_result : parser_results)
     {
-        fcast.set_wind(parser_result.wind, parser_result.offset);
-        fcast.set_temperature(parser_result.temp, parser_result.offset);
+        if (parser_result.offset != -1)
+        {
+            fcast.set_wind(parser_result.wind, parser_result.offset);
+            fcast.set_temperature(parser_result.temp, parser_result.offset);
+        }
     }
 }
