@@ -18,6 +18,7 @@ class Wind
     std::string get_direction_as_str();
     std::string get_direction_as_arrow();
     bool is_defined();
+    void set_defined(bool is_def);
 };
 
 #endif // WIND_H

@@ -14,18 +14,23 @@ Arome_grib_parser::Arome_grib_parser(const std::string &fpath) : file_path(fpath
 // Get meteo value from an AROME GRIB file at lat/long.
 // Return an average value of the extracted data table.
 //
-float Arome_grib_parser::get_meteo_value(const float &latitude, const float &longitude,
-                                         const std::string &param_short_name)
+bool Arome_grib_parser::get_meteo_value(const float &latitude, const float &longitude,
+                                        const std::string &param_short_name,
+                                        float &out_value)
 {
     // Extract meteo values.
-    std::string grib_get_params = std::to_string(latitude) + "," + std::to_string(longitude) + ",1"
+    std::string grib_get_params = " -l " + std::to_string(latitude) + "," + std::to_string(longitude) + ",1"
             + " -w shortName=" + param_short_name
             + " " + this->file_path;
-    std::string raw_val_str = exec("grib_get -l " + grib_get_params);
-    if (raw_val_str.empty() == true)
+    std::string raw_val_str = exec("grib_get" + grib_get_params);
+    if ((raw_val_str.empty() == true) ||
+        (raw_val_str.find("ERROR") != std::string::npos) ||
+        (raw_val_str.find("unreadable message") != std::string::npos))
     {
-        std::cout << "ERROR: grib_get -l " << grib_get_params << std::endl;
-        return 0.0;
+        std::cout << "ERROR: grib_get" << grib_get_params << std::endl;
+        std::cout << "      RET = " << raw_val_str << std::endl;
+        out_value = 0.0;
+        return false;
     }
 
     // Split the results (most of the time there are 4 space-separated values).
@@ -41,13 +46,13 @@ float Arome_grib_parser::get_meteo_value(const float &latitude, const float &lon
     // Calculate the average value.
     float sum = 0.0;
     for (float &v : values) sum += v;
-    float val = sum / (float)values.size();
+    out_value = sum / (float)values.size();
 #else
     // Or get the first value only.
-    float val = values[0];
+    out_value = values[0];
 #endif
 
-    return val;
+    return true;
 }
 
 std::time_t Arome_grib_parser::get_start_date()
@@ -75,27 +80,54 @@ int Arome_grib_parser::get_start_date_offset()
 {
     // Extract the step from meteo params.
     // Get only the first occurence.
-    std::string offset = exec("grib_get -p step " + this->file_path + " | head -n1");
+    std::string cmd = "grib_get -p step " + this->file_path + " | head -n1";
+    std::string offset = exec(cmd);
 
-    if (is_number(offset))
-        return std::stoi(offset);
-    else
+    if ((offset.find("ERROR") != std::string::npos) ||
+        (offset.find("unreadable message") != std::string::npos))
+    {
+        std::cout << "ERROR: " << cmd << std::endl;
+        std::cout << "      RET = " << offset << std::endl;
         return -1;
+    }
+    else
+    {
+        return std::stoi(offset);
+    }
 }
 
 Wind Arome_grib_parser::get_wind(const float &latitude, const float &longitude)
 {
     Wind w;
-    w.set_components_u_v(this->get_meteo_value(latitude, longitude, "10u"),
-                         this->get_meteo_value(latitude, longitude, "10v"));
-
+    float u;
+    float v;
+    
+    if ((this->get_meteo_value(latitude, longitude, "10u", u) == true) &&
+        (this->get_meteo_value(latitude, longitude, "10v", v) == true))
+    {
+        w.set_components_u_v(u, v);
+    }
+    else
+    {
+        w.set_defined(false);
+    }
+    
     return w;
 }
 
 Temperature Arome_grib_parser::get_temperature(const float &latitude, const float &longitude)
 {
     Temperature t;
-    t.set(this->get_meteo_value(latitude, longitude, "2t"));
+    float t_val;
+    
+    if (this->get_meteo_value(latitude, longitude, "2t", t_val) == true)
+    {
+        t.set(t_val);
+    }
+    else
+    {
+        t.set_defined(false);
+    }
 
     return t;
 }

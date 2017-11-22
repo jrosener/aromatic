@@ -78,3 +78,7 @@ bool Wind::is_defined()
     return this->defined;
 }
 
+void Wind::set_defined(bool is_def)
+{
+    this->defined = is_def;
+}

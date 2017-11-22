@@ -35,12 +35,3 @@ std::string exec(const std::string &cmd)
 
     return result;
 }
-
-//
-// Check if a string is a number.
-//
-bool is_number(const std::string& s)
-{
-    return !s.empty() && std::find_if(s.begin(),
-        s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
-}

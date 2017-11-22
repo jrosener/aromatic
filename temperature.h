@@ -13,6 +13,7 @@ class Temperature
     void set(const float &kelvin);
     int get_as_celsius();
     bool is_defined();
+    void set_defined(bool is_def);
 };
 
 #endif // TEMPERATURE_H

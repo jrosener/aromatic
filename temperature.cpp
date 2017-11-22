@@ -21,3 +21,8 @@ bool Temperature::is_defined()
 {
     return this->defined;
 }
+
+void Temperature::set_defined(bool is_def)
+{
+    this->defined = is_def;
+}

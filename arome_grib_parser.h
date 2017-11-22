@@ -21,8 +21,8 @@ class Arome_grib_parser
     Temperature get_temperature(const float &latitude, const float &longitude);
 
  private:
-    float get_meteo_value(const float &latitude, const float &longitude,
-                          const std::string &param_short_name);
+    bool get_meteo_value(const float &latitude, const float &longitude,
+                         const std::string &param_short_name, float &out_value);
 };
 
 #endif // AROME_GRIB_PARSER_H
