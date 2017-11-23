@@ -14,7 +14,7 @@ http://jrosener.github.io/aromatic/
 # Runtime dependencies
 2 command line tools are required:
 * `curl`: needed to download AROME files from Meteo France servers.
-* `grib_get`: needed to parse AROME files and extract meteo data at a specific location (this tool is part of the GRIB API distribution: https://software.ecmwf.int/wiki/display/GRIB/Home).
+* `grib_get`: needed to parse AROME files and extract meteo data at a specific location (this tool is part of the ecCodes distribution: https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home).
 
 # Build requirements
 * `g++ 5.x/6.x`
@@ -26,15 +26,14 @@ http://jrosener.github.io/aromatic/
 * Build: `make`
 
 # Run instructions
-* Write a configuration file `aromatic.ini` (same location than `aromatic` executable) which describes forecast locations to compute. `aromatic-default.ini` is a good starting point. Basically a location is defined like that:
+* Write a configuration file `aromatic.ini` which describes forecast locations to compute. `aromatic-default.ini` is a good starting point. Basically a location is defined like that:
 
 ```INI
 [location.1] # Location description starting point (increase the digit for each location).
 full_name="Col du Petit Saint Bernard" # Full name of the location.
-country=FR # FR: get a https://www.geoportail.gouv.fr map link, XX: use https://www.google.fr/maps
 latitude=45.68
 longitude=6.88
-season=winter # Can be "winter" or "summer", cf. app executable usage
+map="https://www.geoportail.gouv.fr/carte/?c=6.88,45.68" # Location link on a map showed in the report
 web.1="balise ffvl|http://balisemeteo.com/balise_histo.php?idBalise=115" # List of "name|url" printed in the report
 web.2="balise la thuile|http://www.meteolathuile.com/"
 web.3="webcams|http://www.larosiere.net/live/webcams/"
@@ -47,12 +46,11 @@ Usage: ./aromatic [options]
 A forecast parser for Meteo France AROME files
 
 Options:
-  -h, --help         Displays this help.
-  -v, --version      Displays version information.
-  -s, --summer       Get forecast report for summer spots.
-  -w, --winter       Get forecast report for winter spots.
-  -f, --full_report  Get forecast report for all spots (same as --summer
-                     --winter).
+  -h, --help                       Displays this help.
+  -v, --version                    Displays version information.
+  -c, --config_file <config_file>  The file containing location descriptions,
+                                   see README (if not specified then use a set
+                                   of default locations).
 ```
 
 # General architecture
