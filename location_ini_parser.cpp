@@ -50,7 +50,6 @@ void Location_ini_parser::run(std::vector<Location> &loc_forecasts)
         // Get name, lat, long,... for this location.
         std::string name = locations_ini.value("full_name").toString().toStdString();
         std::string map = locations_ini.value("map").toString().toStdString();
-        std::string season = locations_ini.value("season").toString().toStdString();
         float latitude = locations_ini.value("latitude").toFloat();
         float longitude = locations_ini.value("longitude").toFloat();
 
@@ -70,7 +69,7 @@ void Location_ini_parser::run(std::vector<Location> &loc_forecasts)
         locations_ini.endGroup();
 
         // Store location.
-        Location loc_forecast(name, latitude, longitude, map, season, web_urls);
+        Location loc_forecast(name, latitude, longitude, map, web_urls);
         loc_forecasts.push_back(loc_forecast);
     }
 }

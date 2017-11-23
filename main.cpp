@@ -37,41 +37,9 @@ int main(int argc, char *argv[])
                                   QCoreApplication::translate("main", "config_file"));
     cmd_parser.addOption(config_opt);
 
-
-    // -s, --summer: generate report for summer spots only.
-    QCommandLineOption summer_opt(QStringList() << "s" << "summer",
-                                  QCoreApplication::translate("main", "Get forecast report for summer spots only."));
-    cmd_parser.addOption(summer_opt);
-
-    // -w, --winter: generate report for winter spots only.
-    QCommandLineOption winter_opt(QStringList() << "w" << "winter",
-                                  QCoreApplication::translate("main", "Get forecast report for winter spots only."));
-    cmd_parser.addOption(winter_opt);
-
     // Process the actual command line arguments given by the user.
     cmd_parser.process(app);
-    bool do_summer_report = cmd_parser.isSet(summer_opt);
-    bool do_winter_report = cmd_parser.isSet(winter_opt);
     QString config_file = cmd_parser.value(config_opt);
-
-    // No report type specified: do a full report (summer & winter).
-    std::string forecast_name;
-    if ((do_summer_report == true) &&
-        (do_winter_report == false))
-    {
-        forecast_name = "Summer";
-    }
-    else if ((do_winter_report == true) &&
-             (do_summer_report == false))
-    {
-        forecast_name = "Winter";
-    }
-    else
-    {
-        forecast_name = "Summer & Winter";
-        do_summer_report = true;
-        do_winter_report = true;
-    }
 
     // Force locale (needed by std::float::to_string() for example).
     std::setlocale(LC_ALL, "en_US.UTF-8");
@@ -94,11 +62,7 @@ int main(int argc, char *argv[])
     std::vector<Meteo_forecast> meteo_forecasts;
     for (auto &location : locations)
     {
-        if (((do_winter_report == true) && (location.get_season_type() == "winter"))
-           || ((do_summer_report == true) && (location.get_season_type() == "summer")))
-        {
-            meteo_forecasts.push_back(Meteo_forecast(location));
-        }
+        meteo_forecasts.push_back(Meteo_forecast(location));
     }
 
     // Compute forecasts.
@@ -114,7 +78,7 @@ int main(int argc, char *argv[])
     txt_sections.push_back(std::make_pair("Meteo France",    "http://www.meteofrance.com"));
     txt_sections.push_back(std::make_pair("Meteo Parapente", "http://www.meteoparapente.com"));
     txt_sections.push_back(std::make_pair("Unhooked Spots",  "http://www.unhooked.ch/2008/spotguide/"));
-    Meteo_forecast_printer printer(forecast_name, dl.get_run_date("%a %d %b %Y %H:%M"), meteo_forecasts, txt_sections);
+    Meteo_forecast_printer printer("Forecast", dl.get_run_date("%a %d %b %Y %H:%M"), meteo_forecasts, txt_sections);
     std::cout << printer.get_txt() << std::endl;
 
     // Write forecasts as HTML file.
