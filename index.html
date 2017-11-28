@@ -63,14 +63,15 @@
 <li>
 <code>curl</code>: needed to download AROME files from Meteo France servers.</li>
 <li>
-<code>grib_get</code>: needed to parse AROME files and extract meteo data at a specific location (this tool is part of the GRIB API distribution: <a href="https://software.ecmwf.int/wiki/display/GRIB/Home">https://software.ecmwf.int/wiki/display/GRIB/Home</a>).</li>
+<code>grib_get</code>: needed to parse AROME files and extract meteo data at a specific location (this tool is part of the ecCodes distribution: <a href="https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home"</a>).
+</li>
 </ul>
 
 <h1>
 <a id="build-requirements" class="anchor" href="#build-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build requirements</h1>
 
 <ul>
-<li><code>g++ 5.x</code></li>
+<li><code>g++ 5.x/6.x</code></li>
 <li>
 <code>Qt 5.x</code> (<code>qmake</code> and <code>QtConcurrent</code> are necessary)</li>
 </ul>
@@ -79,13 +80,13 @@
 <a id="build-instructions" class="anchor" href="#build-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build instructions</h1>
 
 <ul>
-<li>Install build dependencies (ex. for Ubuntu 15.10): <code>sudo apt-get install build-essential qt5-default libgrib-api-tools</code>
+<li>Install build dependencies (ex. for Ubuntu 17.10): <code>sudo apt-get install build-essential qt5-default libeccodes-tools</code>
 </li>
 <li>Generate makefile: <code>qmake aromatic.pro</code>
 </li>
 <li>Build: <code>make</code>
 </li>
-<li>Run (the forecast is generated for locations defined in <code>main.cpp</code>, so this is the place to add your favorite spots): <code>./aromatic</code>
+<li>Run (the forecast is generated for locations defined in a setting file (check syntax here: <a href="https://github.com/jrosener/aromatic/blob/master/README.md#run-instructions">README.md</a>): <code>./aromatic -c locations.ini</code>
 </li>
 </ul>
       </section>
