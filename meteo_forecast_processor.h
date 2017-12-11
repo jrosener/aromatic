@@ -3,8 +3,6 @@
 
 #include <string>
 
-#include "temperature.h"
-#include "wind.h"
 #include "meteo_forecast.h"
 
 struct Meteo_offset

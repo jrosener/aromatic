@@ -10,8 +10,6 @@
 #include <QCoreApplication>
 #include <QCommandLineParser>
 
-#include "temperature.h"
-#include "wind.h"
 #include "location.h"
 #include "utils.h"
 #include "arome_grib_downloader.h"
