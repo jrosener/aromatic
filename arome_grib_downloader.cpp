@@ -147,6 +147,7 @@ bool Arome_grib_downloader::run()
     // Download all files from the last run.
     if (result == true)
     {
+        // Create/switch to download dir.
         this->dl_dir = this->dl_dir + "-" + run_date + "-" + run_time + "00";
         exec("mkdir " + this->dl_dir);
         if (chdir(this->dl_dir.c_str()) != 0)
@@ -154,28 +155,30 @@ bool Arome_grib_downloader::run()
             std::cout << "ERROR: Can not change directory to " << this->dl_dir << std::endl;
             return false;
         }
-        // Prepare a list of URLs to download.
-        std::vector<std::string> urls;
-        for (int i = 0; i <= METEO_FRANCE_NB_HOUR_OFFSET; i++)
-        {
-            std::string offset = std::to_string(i);
-            if (offset.length() == 1) offset = '0' + offset;
-            // Download only if it does not exists.
-            if (!std::ifstream("AROME_0.01_SP1_" + offset + "H_" + run_date + run_time + "00.grib2"))
-            {
-                urls.push_back(base_url + "&time=" + offset + "H&referencetime=" + run_date_dash + "T" + run_time + ":00:00Z");
-            }
-        }
-        // Download all URLs.
-        std::cout << std::endl;
-        std::cout << "Downloading AROME files:" << std::endl;
-        if (urls.size() == 0)
-        {
-            std::cout << "Nothing to download" << std::endl;
-        }
+
+        // Perform download 5 times (because it often happens that some download are failing).
         int max_retry = 5;
         while ((max_retry > 0) && (this->get_file_list().size() <= METEO_FRANCE_NB_HOUR_OFFSET)) // Hack: because sometimes files exists but are not retrived by the server, then try again.
         {
+            // Prepare a list of URLs to download.
+            std::vector<std::string> urls;
+            for (int i = 0; i <= METEO_FRANCE_NB_HOUR_OFFSET; i++)
+            {
+                std::string offset = std::to_string(i);
+                if (offset.length() == 1) offset = '0' + offset;
+                // Download only if it does not exists.
+                if (!std::ifstream("AROME_0.01_SP1_" + offset + "H_" + run_date + run_time + "00.grib2"))
+                {
+                    urls.push_back(base_url + "&time=" + offset + "H&referencetime=" + run_date_dash + "T" + run_time + ":00:00Z");
+                }
+            }
+            // Download all URLs.
+            std::cout << std::endl;
+            std::cout << "Downloading AROME files:" << std::endl;
+            if (urls.size() == 0)
+            {
+                std::cout << "Nothing to download" << std::endl;
+            }
         #if 0 // parallel
             // Set number of threads for paralellization to 2.
             // This is a MeteoFrance limitation:
