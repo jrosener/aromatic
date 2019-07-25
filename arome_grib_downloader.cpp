@@ -47,15 +47,15 @@ std::string Arome_grib_downloader::get_last_available_run_time(const std::string
 
     // Based on the current date, check if run from 18:00 exists, if not check 12:00, etc...
     std::cout << "Looking for the latest run:" << std::endl;
-    if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T18:00:00Z") == true)
+    if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T18:00:00Z&format=grib2") == true)
         run_time = "18";
-    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T12:00:00Z") == true)
+    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T12:00:00Z&format=grib2") == true)
         run_time = "12";
-    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T06:00:00Z") == true)
+    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T06:00:00Z&format=grib2") == true)
         run_time = "06";
-    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T03:00:00Z") == true)
+    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T03:00:00Z&format=grib2") == true)
         run_time = "03";
-    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T00:00:00Z") == true)
+    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T00:00:00Z&format=grib2") == true)
         run_time = "00";
     std::cout << "Use run " << run_time << "H" << std::endl;
 
@@ -169,7 +169,7 @@ bool Arome_grib_downloader::run()
                 // Download only if it does not exists.
                 if (!std::ifstream("AROME_0.01_SP1_" + offset + "H_" + run_date + run_time + "00.grib2"))
                 {
-                    urls.push_back(base_url + "&time=" + offset + "H&referencetime=" + run_date_dash + "T" + run_time + ":00:00Z");
+                    urls.push_back(base_url + "&time=" + offset + "H&referencetime=" + run_date_dash + "T" + run_time + ":00:00Z&format=grib2");
                 }
             }
             // Download all URLs.
