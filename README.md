@@ -21,7 +21,7 @@ http://jrosener.github.io/aromatic/
 * `Qt 5.x` (`qmake` and `QtConcurrent` are necessary)
 
 # Build instructions
-* Install build dependencies (ex. for Ubuntu 18.10): `sudo apt-get install build-essential qt5-default libeccodes-tools curl`
+* Install build dependencies (ex. for Ubuntu 20.04): `sudo apt-get install build-essential qt5-default libeccodes-tools curl`
 * Generate makefile: `qmake aromatic.pro`
 * Build: `make`
 
