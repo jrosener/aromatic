@@ -5,6 +5,7 @@
 #include <sstream>
 #include <fstream>
 #include <QtConcurrentMap>
+#include <QString>
 
 #include "arome_grib_downloader.h"
 #include "utils.h"
@@ -220,7 +221,11 @@ std::vector<std::string> Arome_grib_downloader::get_file_list()
     std::string item;
     while (std::getline(ss, item, '\n'))
     {
-        files.push_back(this->dl_dir + "/" + item.c_str());
+        QString it = QString::fromStdString(item);
+        files.push_back(this->dl_dir + "/" + it.replace(" ", "\\ ")
+                                               .replace("\"", "\\\"")
+                                               .replace(",", "\\,")
+                                               .toStdString().c_str());
     }
 
     return files;
