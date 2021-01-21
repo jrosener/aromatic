@@ -72,10 +72,12 @@ int main(int argc, char *argv[])
 
     // Print forecasts.
     std::vector<std::pair<std::string,std::string>> txt_sections;
-    txt_sections.push_back(std::make_pair("Meteo Caplain",   "http://mto38.free.fr"));
-    txt_sections.push_back(std::make_pair("Meteo France",    "http://www.meteofrance.com/previsions-meteo-france/saint-julien-en-genevois/74160"));
-    txt_sections.push_back(std::make_pair("Meteo Parapente", "http://www.meteoparapente.com"));
-    txt_sections.push_back(std::make_pair("Unhooked Spots",  "http://www.unhooked.ch/2008/spotguide/"));
+    txt_sections.push_back(std::make_pair("Meteo Caplain",     "http://mto38.free.fr"));
+    txt_sections.push_back(std::make_pair("Meteo France",      "http://www.meteofrance.com/previsions-meteo-france/saint-julien-en-genevois/74160"));
+    txt_sections.push_back(std::make_pair("BRA Alpes du Nord", "https://meteofrance.com/meteo-montagne/alpes-du-nord/enneigement"));
+    txt_sections.push_back(std::make_pair("BRA Suisse", "https://www.slf.ch/fr/bulletin-davalanches-et-situation-nivologique.html#dangeravalanche"));
+    txt_sections.push_back(std::make_pair("Meteo Parapente",   "http://www.meteoparapente.com"));
+    txt_sections.push_back(std::make_pair("Unhooked Spots",    "http://www.unhooked.ch/2008/spotguide/"));
     Meteo_forecast_printer printer("Forecast", dl.get_run_date("%a %d %b %Y %H:%M"), meteo_forecasts, txt_sections);
     std::cout << printer.get_txt() << std::endl;
 
