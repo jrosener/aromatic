@@ -6,6 +6,7 @@
 #include <fstream>
 #include <QtConcurrentMap>
 #include <QString>
+#include <QFile>
 
 #include "arome_grib_downloader.h"
 #include "utils.h"
@@ -148,6 +149,15 @@ bool Arome_grib_downloader::run()
     // Download all files from the last run.
     if (result == true)
     {
+        // Store the run date/time to a file.
+        QString run_file = ".run_date";
+        QFile file(run_file);
+        if (file.open(QIODevice::WriteOnly))
+        {
+            QTextStream stream(&file);
+            stream << QString::fromStdString(run_date) << "-" << QString::fromStdString(run_time) << "00" << endl;
+        }
+
         // Create/switch to download dir.
         this->dl_dir = this->dl_dir + "-" + run_date + "-" + run_time + "00";
         exec("mkdir " + this->dl_dir);

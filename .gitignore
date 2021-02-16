@@ -32,8 +32,11 @@ aromatic
 # Makefile
 Makefile
 *.pro.user
+*.pro.user.*
+.qmake.stash
 
 # Output files
 forecast.html
 dl-*
 tmp/
+.run_date
