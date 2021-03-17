@@ -19,5 +19,5 @@ echo ""
 
 echo =========== Commit report ===========
 RUN_DATE=$(cat .run_date)
-( cd ../aromatic-gh-pages.git/ && git add forecast.html && git commit -m "Update forecast html output (run: ${RUN_DATE})." && git push )
+( cd ../aromatic-gh-pages.git/ && git add forecast.html && git commit -m "Update forecast html output (run: ${RUN_DATE})." && git pull --rebase && git push )
 echo =============== Done ================
