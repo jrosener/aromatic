@@ -38,7 +38,10 @@ void Location_ini_parser::run(std::vector<Location> &loc_forecasts)
 {
     // Get list of locations where the forecast has to be computed (aromatic.ini).
     QSettings locations_ini(QString::fromStdString(this->file), QSettings::IniFormat);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    // Qt 6 reads INI files as UTF-8 by default and has no setIniCodec().
     locations_ini.setIniCodec("UTF-8");
+#endif
     QStringList location_sections = locations_ini.childGroups();
 
     // Iterate over sections "[location.x]".

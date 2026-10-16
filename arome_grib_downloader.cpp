@@ -13,8 +13,23 @@
 
 #define DL_DIR "dl"
 #define TMP_DIR "tmp"
-#define METEO_FRANCE_DL_URL "http://dcpc-nwp.meteo.fr/services/PS_GetCache_DCPCPreviNum?token=__5yLVTdr-sGeHoPitnFc7TZ6MhBcJxuSsoZp6y0leVHU__&model=AROME&grid=0.01&package=SP1"
-#define METEO_FRANCE_NB_HOUR_OFFSET 36
+#define METEO_FRANCE_DL_URL "https://meteofrance-pnt.s3.rbx.io.cloud.ovh.net/pnt"
+#define METEO_FRANCE_NB_HOUR_OFFSET 51
+
+// Name of the AROME 0.01 SP1 GRIB file for a run and an hour offset.
+// Ex: arome__001__SP1__00H__2026-10-16T03:00:00Z.grib2
+static std::string get_grib_file_name(const std::string &run_date, const std::string &run_time, const std::string &offset)
+{
+    return "arome__001__SP1__" + offset + "H__" + run_date + "T" + run_time + ":00:00Z.grib2";
+}
+
+// URL of the AROME 0.01 SP1 GRIB file for a run and an hour offset.
+// Ex: https://meteofrance-pnt.s3.rbx.io.cloud.ovh.net/pnt/2026-10-16T03:00:00Z/arome/001/SP1/arome__001__SP1__00H__2026-10-16T03:00:00Z.grib2
+static std::string get_grib_url(const std::string &run_date, const std::string &run_time, const std::string &offset)
+{
+    return std::string(METEO_FRANCE_DL_URL) + "/" + run_date + "T" + run_time + ":00:00Z/arome/001/SP1/"
+           + get_grib_file_name(run_date, run_time, offset);
+}
 
 Arome_grib_downloader::Arome_grib_downloader()
 {
@@ -29,8 +44,8 @@ Arome_grib_downloader::Arome_grib_downloader()
 
 std::string Arome_grib_downloader::get_date_str(time_t date_t, const std::string &format)
 {
-    // Convert date as string.
-    std::tm date = *std::localtime(&date_t);
+    // Convert date as string (UTC because Meteo France runs are identified by their UTC date and time).
+    std::tm date = *std::gmtime(&date_t);
     std::stringstream ss;
     ss << std::put_time(&date, format.c_str());
 
@@ -45,20 +60,21 @@ std::string Arome_grib_downloader::get_run_date(const std::string &format)
 std::string Arome_grib_downloader::get_last_available_run_time(const std::string &run_date)
 {
     std::string run_time = "-1";
-    std::string base_url(METEO_FRANCE_DL_URL);
 
-    // Based on the current date, check if run from 18:00 exists, if not check 12:00, etc...
+    // Based on the current date, check if run from 21:00 exists, if not check 18:00, etc...
+    // Files of a run are published progressively (~50 min between 00H and 51H),
+    // so check the last hour offset to only select a complete run.
+    const char *run_times[] = {"21", "18", "15", "12", "09", "06", "03", "00"};
+    std::string last_offset = std::to_string(METEO_FRANCE_NB_HOUR_OFFSET);
     std::cout << "Looking for the latest run:" << std::endl;
-    if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T18:00:00Z&format=grib2") == true)
-        run_time = "18";
-    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T12:00:00Z&format=grib2") == true)
-        run_time = "12";
-    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T06:00:00Z&format=grib2") == true)
-        run_time = "06";
-    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T03:00:00Z&format=grib2") == true)
-        run_time = "03";
-    else if (this->url_exists(base_url + "&time=00H&referencetime=" + run_date + "T00:00:00Z&format=grib2") == true)
-        run_time = "00";
+    for (const std::string rt : run_times)
+    {
+        if (this->url_exists(get_grib_url(run_date, rt, last_offset)) == true)
+        {
+            run_time = rt;
+            break;
+        }
+    }
     std::cout << "Use run " << run_time << "H" << std::endl;
 
     return run_time;
@@ -68,31 +84,15 @@ static std::string dl_file_static(const std::string &url)
 {
     // Use curl to download the file.
     // Silent mode but still return an error message in case of failure.
-    std::string res = exec("curl -s -S -f -O -J -L \"" + url + "\" 2>&1");
-
-    // Hack for Meteo France server: if the downloaded file name starts with
-    // "PS_GetCache_DCPCPreviNum" it means that the download failed, so try again.
-    unsigned int timeout = 0;
-    if (res.find("curl: (") == std::string::npos) // no curl error.
-    {
-        size_t offset_idx = url.find("H&referencetime", 0);
-        if (offset_idx != std::string::npos)
-        {
-            std::string offset = url.substr(offset_idx - 2, 3);
-            //std::cout << "no error, check PS_GetCache: " << exec("ls | grep PS_GetCache_DCPCPreviNum | grep " + offset) << std::endl;
-            while ((exec("ls | grep PS_GetCache_DCPCPreviNum | grep " + offset) != "") && (timeout < 10))
-            {
-                std::cout << "cannot dl " << url << " : remove PS_GetCache and try again" << std::endl;
-                exec("rm PS_GetCache_DCPCPreviNum*" + offset + "*");
-                res = exec("curl -s -S -f -O -J -L \"" + url + "\" 2>&1");
-                timeout++;
-            }
-        }
-    }
+    std::string res = exec("curl -s -S -f -O -L \"" + url + "\" 2>&1");
 
     // Check if curl returns an error (ex: 404 file not found,...).
-    if ((res.find("curl: (") != std::string::npos) || (timeout == 10))
+    if (res.find("curl: (") != std::string::npos)
+    {
         std::cout << "Downloading " << url << "... Failed" << std::endl << " (" << res << ")" << std::endl;
+        // Remove any partially downloaded file so that it is downloaded again on retry.
+        exec("rm -f \"" + url.substr(url.find_last_of('/') + 1) + "\"");
+    }
     else
         std::cout << "Downloading " << url << "... Done" << std::endl;
 
@@ -112,20 +112,17 @@ bool Arome_grib_downloader::run()
         std::cout << "ERROR: Can not change directory to " << tmp_dir << std::endl;
         return false;
     }
-    std::string base_url(METEO_FRANCE_DL_URL);
-    time_t today = time(0);
-    std::string run_date = this->get_date_str(today, "%Y%m%d");
-    std::string run_date_dash = this->get_date_str(today, "%Y-%m-%d");
+    time_t run_day = time(0);
+    std::string run_date = this->get_date_str(run_day, "%Y%m%d");
+    std::string run_date_dash = this->get_date_str(run_day, "%Y-%m-%d");
     std::string run_time = this->get_last_available_run_time(run_date_dash);
 
     if (run_time == "-1")
     {
         // Try downloading the previous day if the current day is still not available.
-        std::tm prev_day = *std::localtime(&today);
-        prev_day.tm_mday = prev_day.tm_mday - 1;
-        time_t prev_day_t = mktime(&prev_day);
-        run_date = this->get_date_str(prev_day_t, "%Y%m%d");
-        run_date_dash = this->get_date_str(prev_day_t, "%Y-%m-%d");
+        run_day = run_day - 24 * 60 * 60;
+        run_date = this->get_date_str(run_day, "%Y%m%d");
+        run_date_dash = this->get_date_str(run_day, "%Y-%m-%d");
         run_time = this->get_last_available_run_time(run_date_dash);
     }
     if (run_time == "-1")
@@ -139,12 +136,12 @@ bool Arome_grib_downloader::run()
         return false;
     }
 
-    // Store the run date/time.
-    std::tm run_date_time = *std::localtime(&today);
+    // Store the run date/time (UTC).
+    std::tm run_date_time = *std::gmtime(&run_day);
     run_date_time.tm_min = 0;
     run_date_time.tm_sec = 0;
     run_date_time.tm_hour = std::stoi(run_time);
-    this->run_date_time = mktime(&run_date_time);
+    this->run_date_time = timegm(&run_date_time);
 
     // Download all files from the last run.
     if (result == true)
@@ -155,7 +152,7 @@ bool Arome_grib_downloader::run()
         if (file.open(QIODevice::WriteOnly))
         {
             QTextStream stream(&file);
-            stream << QString::fromStdString(run_date) << "-" << QString::fromStdString(run_time) << "00" << endl;
+            stream << QString::fromStdString(run_date) << "-" << QString::fromStdString(run_time) << "00" << Qt::endl;
         }
 
         // Create/switch to download dir.
@@ -178,9 +175,9 @@ bool Arome_grib_downloader::run()
                 std::string offset = std::to_string(i);
                 if (offset.length() == 1) offset = '0' + offset;
                 // Download only if it does not exists.
-                if (!std::ifstream("AROME_0.01_SP1_" + offset + "H_" + run_date + run_time + "00.grib2"))
+                if (!std::ifstream(get_grib_file_name(run_date_dash, run_time, offset)))
                 {
-                    urls.push_back(base_url + "&time=" + offset + "H&referencetime=" + run_date_dash + "T" + run_time + ":00:00Z&format=grib2");
+                    urls.push_back(get_grib_url(run_date_dash, run_time, offset));
                 }
             }
             // Download all URLs.

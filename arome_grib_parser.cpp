@@ -72,8 +72,8 @@ std::time_t Arome_grib_parser::get_start_date()
     std::stringstream ss(date_time.c_str());
     ss >> std::get_time(&tm, "%Y%m%d%H%M");
 
-    // Return as time_t type.
-    return std::mktime(&tm);
+    // Return as time_t type (GRIB date and time are UTC).
+    return timegm(&tm);
 }
 
 int Arome_grib_parser::get_start_date_offset()

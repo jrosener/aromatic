@@ -1,5 +1,6 @@
 #include "wind.h"
 #include <cmath>
+#include <sstream>
 
 Wind::Wind()
 {
@@ -39,38 +40,36 @@ int Wind::get_direction_as_deg()
     return this->direction;
 }
 
+// 16-point compass rose, each sector is 22.5\u00b0 wide and centered on its direction
+// (ex: N = [348.75\u00b0, 11.25\u00b0[, NNE = [11.25\u00b0, 33.75\u00b0[,...).
+static const char *COMPASS_POINTS[16] = {"N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
+                                         "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"};
+
+static int get_compass_sector(int direction)
+{
+    return static_cast<int>(std::floor((direction + 11.25) / 22.5)) % 16;
+}
+
 std::string Wind::get_direction_as_str()
 {
-    std::string str = "";
+    if ((this->direction < 0) || (this->direction > 360))
+        return "";
 
-    // Transformation based on: http://wx.gmu.edu/dev/clim301/lectures/wind/wind-uv.html
-    if ((this->direction >= 0)  && (this->direction <= 22))  str = "N";
-    if ((this->direction > 22)  && (this->direction <= 67))  str = "NE";
-    if ((this->direction > 67)  && (this->direction <= 112)) str = "E";
-    if ((this->direction > 112) && (this->direction <= 157)) str = "SE";
-    if ((this->direction > 157) && (this->direction <= 202)) str = "S";
-    if ((this->direction > 202) && (this->direction <= 247)) str = "SO";
-    if ((this->direction > 247) && (this->direction <= 292)) str = "O";
-    if ((this->direction > 292) && (this->direction <= 337)) str = "NO";
-    if ((this->direction > 337) && (this->direction <= 360)) str = "N";
-
-    return str;
+    return COMPASS_POINTS[get_compass_sector(this->direction)];
 }
 
 std::string Wind::get_direction_as_arrow()
 {
-    std::string dir = this->get_direction_as_str();
+    if ((this->direction < 0) || (this->direction > 360))
+        return "";
 
-    if (dir == "N")  return "\u2193";
-    if (dir == "NO") return "\u2198";
-    if (dir == "O")  return "\u2192";
-    if (dir == "SO") return "\u2197";
-    if (dir == "S")  return "\u2191";
-    if (dir == "SE") return "\u2196";
-    if (dir == "E")  return "\u2190";
-    if (dir == "NE") return "\u2199";
+    // Unicode only has arrows for the 8 main directions, so rotate a down arrow
+    // (wind coming from N) by the angle of the compass sector: the arrow shows
+    // where the wind blows to.
+    std::stringstream angle;
+    angle << get_compass_sector(this->direction) * 22.5;
 
-    return "";
+    return "<span class=\"wind_arrow\" style=\"transform: rotate(" + angle.str() + "deg)\">\u2193</span>";
 }
 
 bool Wind::is_defined()
