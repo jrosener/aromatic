@@ -61,6 +61,21 @@ std::string Meteo_forecast_printer::get_html()
     html.append("    background-color: #4CAF50;\n");
     html.append("    color: white;\n");
     html.append("   }\n");
+    html.append("   th.now span.hour {\n");
+    html.append("    position: relative;\n");
+    html.append("   }\n");
+    html.append("   th.now span.hour::after {\n");
+    html.append("    content: \"\";\n");
+    html.append("    position: absolute;\n");
+    html.append("    left: 50%;\n");
+    html.append("    top: 50%;\n");
+    html.append("    width: 2.4em;\n");
+    html.append("    height: 2.4em;\n");
+    html.append("    box-sizing: border-box;\n");
+    html.append("    transform: translate(-50%, -50%);\n");
+    html.append("    border: 2px solid white;\n");
+    html.append("    border-radius: 50%;\n");
+    html.append("   }\n");
     html.append("   span.wind_arrow {\n");
     html.append("    display: inline-block;\n");
     html.append("   }\n");
@@ -164,14 +179,16 @@ std::string Meteo_forecast_printer::get_html()
         std::string cur_day = "";
         for (unsigned int i = 0; i < forecast.get_max_offset(); i++)
         {
+            // Timestamp of the hour, used by the script at the end of the page to circle the current hour.
+            std::string time_attr = " data-time=\"" + std::to_string(forecast.get_start_date() + i * 3600) + "\"";
             if (cur_day != forecast.get_start_date_offset_as_str((unsigned int)i, "%a"))
             {
                 cur_day = forecast.get_start_date_offset_as_str((unsigned int)i, "%a");
-                html.append("    <th class=\"separator\">" + forecast.get_start_date_offset_as_str((unsigned int)i, "%a<br/>%Hh") + "</th>\n");
+                html.append("    <th class=\"separator\"" + time_attr + ">" + forecast.get_start_date_offset_as_str((unsigned int)i, "%a<br/><span class=\"hour\">%Hh</span>") + "</th>\n");
             }
             else
             {
-                html.append("    <th>" + forecast.get_start_date_offset_as_str((unsigned int)i, "<br/>%Hh") + "</th>\n");
+                html.append("    <th" + time_attr + ">" + forecast.get_start_date_offset_as_str((unsigned int)i, "<br/><span class=\"hour\">%Hh</span>") + "</th>\n");
             }
         }
         html.append("   </tr>\n");
@@ -231,6 +248,19 @@ std::string Meteo_forecast_printer::get_html()
         html.append("  <br/>");
     }
 
+    // Circle the current hour in every forecast table. Done in the browser because
+    // the page is generated once but viewed later.
+    html.append("  <script>\n");
+    html.append("   function circle_current_hour() {\n");
+    html.append("    var now = Date.now() / 1000;\n");
+    html.append("    document.querySelectorAll(\"th[data-time]\").forEach(function (th) {\n");
+    html.append("     var t = Number(th.dataset.time);\n");
+    html.append("     th.classList.toggle(\"now\", (t <= now) && (now < t + 3600));\n");
+    html.append("    });\n");
+    html.append("   }\n");
+    html.append("   circle_current_hour();\n");
+    html.append("   setInterval(circle_current_hour, 60 * 1000);\n");
+    html.append("  </script>\n");
     html.append(" </body>\n");
     html.append("</html>\n");
 
