@@ -39,6 +39,21 @@
     background-color: #4CAF50;
     color: white;
    }
+   th.now span.hour {
+    position: relative;
+   }
+   th.now span.hour::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 2.4em;
+    height: 2.4em;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    border-radius: 50%;
+   }
    span.wind_arrow {
     display: inline-block;
    }
@@ -115,58 +130,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -287,58 +302,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -460,58 +475,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -632,58 +647,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -806,58 +821,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -982,58 +997,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -1156,58 +1171,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -1328,58 +1343,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -1501,58 +1516,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -1671,58 +1686,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -1843,58 +1858,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -2022,58 +2037,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -2195,58 +2210,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -2367,58 +2382,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -2542,58 +2557,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -2718,58 +2733,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -2893,58 +2908,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -3065,58 +3080,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -3239,58 +3254,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -3412,58 +3427,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -3583,58 +3598,58 @@
 </h3>  <table>
    <tr>
     <th></th>
-    <th class="separator">Fri<br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sat<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
-    <th><br/>09h</th>
-    <th><br/>10h</th>
-    <th><br/>11h</th>
-    <th><br/>12h</th>
-    <th><br/>13h</th>
-    <th><br/>14h</th>
-    <th><br/>15h</th>
-    <th><br/>16h</th>
-    <th><br/>17h</th>
-    <th><br/>18h</th>
-    <th><br/>19h</th>
-    <th><br/>20h</th>
-    <th><br/>21h</th>
-    <th><br/>22h</th>
-    <th><br/>23h</th>
-    <th class="separator">Sun<br/>00h</th>
-    <th><br/>01h</th>
-    <th><br/>02h</th>
-    <th><br/>03h</th>
-    <th><br/>04h</th>
-    <th><br/>05h</th>
-    <th><br/>06h</th>
-    <th><br/>07h</th>
-    <th><br/>08h</th>
+    <th class="separator" data-time="1792119600">Fri<br/><span class="hour">05h</span></th>
+    <th data-time="1792123200"><br/><span class="hour">06h</span></th>
+    <th data-time="1792126800"><br/><span class="hour">07h</span></th>
+    <th data-time="1792130400"><br/><span class="hour">08h</span></th>
+    <th data-time="1792134000"><br/><span class="hour">09h</span></th>
+    <th data-time="1792137600"><br/><span class="hour">10h</span></th>
+    <th data-time="1792141200"><br/><span class="hour">11h</span></th>
+    <th data-time="1792144800"><br/><span class="hour">12h</span></th>
+    <th data-time="1792148400"><br/><span class="hour">13h</span></th>
+    <th data-time="1792152000"><br/><span class="hour">14h</span></th>
+    <th data-time="1792155600"><br/><span class="hour">15h</span></th>
+    <th data-time="1792159200"><br/><span class="hour">16h</span></th>
+    <th data-time="1792162800"><br/><span class="hour">17h</span></th>
+    <th data-time="1792166400"><br/><span class="hour">18h</span></th>
+    <th data-time="1792170000"><br/><span class="hour">19h</span></th>
+    <th data-time="1792173600"><br/><span class="hour">20h</span></th>
+    <th data-time="1792177200"><br/><span class="hour">21h</span></th>
+    <th data-time="1792180800"><br/><span class="hour">22h</span></th>
+    <th data-time="1792184400"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792188000">Sat<br/><span class="hour">00h</span></th>
+    <th data-time="1792191600"><br/><span class="hour">01h</span></th>
+    <th data-time="1792195200"><br/><span class="hour">02h</span></th>
+    <th data-time="1792198800"><br/><span class="hour">03h</span></th>
+    <th data-time="1792202400"><br/><span class="hour">04h</span></th>
+    <th data-time="1792206000"><br/><span class="hour">05h</span></th>
+    <th data-time="1792209600"><br/><span class="hour">06h</span></th>
+    <th data-time="1792213200"><br/><span class="hour">07h</span></th>
+    <th data-time="1792216800"><br/><span class="hour">08h</span></th>
+    <th data-time="1792220400"><br/><span class="hour">09h</span></th>
+    <th data-time="1792224000"><br/><span class="hour">10h</span></th>
+    <th data-time="1792227600"><br/><span class="hour">11h</span></th>
+    <th data-time="1792231200"><br/><span class="hour">12h</span></th>
+    <th data-time="1792234800"><br/><span class="hour">13h</span></th>
+    <th data-time="1792238400"><br/><span class="hour">14h</span></th>
+    <th data-time="1792242000"><br/><span class="hour">15h</span></th>
+    <th data-time="1792245600"><br/><span class="hour">16h</span></th>
+    <th data-time="1792249200"><br/><span class="hour">17h</span></th>
+    <th data-time="1792252800"><br/><span class="hour">18h</span></th>
+    <th data-time="1792256400"><br/><span class="hour">19h</span></th>
+    <th data-time="1792260000"><br/><span class="hour">20h</span></th>
+    <th data-time="1792263600"><br/><span class="hour">21h</span></th>
+    <th data-time="1792267200"><br/><span class="hour">22h</span></th>
+    <th data-time="1792270800"><br/><span class="hour">23h</span></th>
+    <th class="separator" data-time="1792274400">Sun<br/><span class="hour">00h</span></th>
+    <th data-time="1792278000"><br/><span class="hour">01h</span></th>
+    <th data-time="1792281600"><br/><span class="hour">02h</span></th>
+    <th data-time="1792285200"><br/><span class="hour">03h</span></th>
+    <th data-time="1792288800"><br/><span class="hour">04h</span></th>
+    <th data-time="1792292400"><br/><span class="hour">05h</span></th>
+    <th data-time="1792296000"><br/><span class="hour">06h</span></th>
+    <th data-time="1792299600"><br/><span class="hour">07h</span></th>
+    <th data-time="1792303200"><br/><span class="hour">08h</span></th>
    </tr>
    <tr>
     <td>Wind<br/>(knots)</td>
@@ -3747,5 +3762,16 @@
     <td>4</td>
    </tr>
   </table>
-  <br/> </body>
+  <br/>  <script>
+   function circle_current_hour() {
+    var now = Date.now() / 1000;
+    document.querySelectorAll("th[data-time]").forEach(function (th) {
+     var t = Number(th.dataset.time);
+     th.classList.toggle("now", (t <= now) && (now < t + 3600));
+    });
+   }
+   circle_current_hour();
+   setInterval(circle_current_hour, 60 * 1000);
+  </script>
+ </body>
 </html>
